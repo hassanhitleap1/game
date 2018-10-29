@@ -51,7 +51,7 @@
           
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
-          console.log(points);
+          //console.log(points);
           
           for (var i = 1, len = points.length; i < len; i++) {
           // we pick the point between pi+1 & pi+2 as the
@@ -66,29 +66,28 @@
           // the bezier control point
           ctx.lineTo(p1.x, p1.y);
           ctx.stroke();
-          removeDrow(points);
+          draw(points);
          };
          
          el.onmouseup = function() {
-            draw();
+            removeDrow();
             isDrawing = false;
             points.length = 0;
          
          };
 
 
-         function draw() {
+         function removeDrow() {
             var canvas = document.getElementById('d');
             if (canvas.getContext) {
                 var ctx = canvas.getContext('2d');
+                console.log(ctx);
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                var w = canvas.width;
-                canvas.width = 1;
-                canvas.width = w;
+                
             }
         }
 
-        function removeDrow(json) {
+        function draw(json) {
             var c = document.getElementById('d');
             var ctx=c.getContext("2d");
             ctx.beginPath();
@@ -109,7 +108,8 @@
         //   // the bezier control point
         //   ctx.lineTo(p1.x, p1.y);
             ctx.closePath();
-            ctx.globalAlpha=0.7;
+            ctx.globalAlpha=0.07;
+            ctx.lineCap = "square";
             ctx.fill();
             ctx.stroke();
         }
