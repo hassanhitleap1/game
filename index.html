@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <script
+         src="https://code.jquery.com/jquery-3.3.1.js"
+         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+         crossorigin="anonymous"></script>
+      <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+      <script src="main.js"></script>
+   </head>
+   <body>
+      <canvas id="c" width="500" height="300"></canvas>
+      <script>
+         function midPointBtw(p1, p2) {
+         return {
+         x: p1.x + (p2.x - p1.x) / 2,
+         y: p1.y + (p2.y - p1.y) / 2
+         };
+         }
+         var el = document.getElementById('c');
+         var ctx = el.getContext('2d');
+         
+         ctx.lineWidth = 10;
+         ctx.lineJoin = ctx.lineCap = 'round';
+         
+         var isDrawing, points = [ ];
+         
+         el.onmousedown = function(e) {
+         isDrawing = true;
+         points.push({ x: e.clientX, y: e.clientY });
+         };
+         
+         el.onmousemove = function(e) {
+         if (!isDrawing) return;
+         
+         points.push({ x: e.clientX, y: e.clientY });
+         
+         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+         
+         var p1 = points[0];
+         var p2 = points[1];
+         
+         ctx.beginPath();
+         ctx.moveTo(p1.x, p1.y);
+         console.log(points);
+         
+         for (var i = 1, len = points.length; i < len; i++) {
+         // we pick the point between pi+1 & pi+2 as the
+         // end point and p1 as our control point
+         var midPoint = midPointBtw(p1, p2);
+         ctx.quadraticCurveTo(p1.x, p1.y, midPoint.x, midPoint.y);
+         p1 = points[i];
+         p2 = points[i+1];
+         }
+         // Draw last line as a straight line while
+         // we wait for the next point to be able to calculate
+         // the bezier control point
+         ctx.lineTo(p1.x, p1.y);
+         ctx.stroke();
+         };
+         
+         el.onmouseup = function() {
+         isDrawing = false;
+         points.length = 0;
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <canvas id="canvas" style=" border: 1px solid black; width: 500px; height: 500px;"></canvas>
-    <script>
-    // create canvas element and append it to document body
-var canvas = document.getElementById('canvas');
-document.body.appendChild(canvas);
-
-// some hotfixes... ( ≖_≖)
-document.body.style.margin = 2;
-canvas.style.position = 'fixed';
-
-// get canvas 2D context and set him correct size
-var ctx = canvas.getContext('2d');
-resize();
-
-// last known position
-var pos = { x: 0, y: 0 };
-
-window.addEventListener('resize', resize);
-document.addEventListener('mousemove', draw);
-document.addEventListener('mousedown', setPosition);
-document.addEventListener('mouseenter', setPosition);
-
-// new position from mouse event
-function setPosition(e) {
-  pos.x = e.clientX;
-  pos.y = e.clientY;
-}
-
-// resize canvas
-function resize() {
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
-}
-
-function draw(e) {
-  // mouse left button must be pressed
-  if (e.buttons !== 1) return;
-
-  ctx.beginPath(); // begin
-
-  ctx.lineWidth = 5;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = '#c0392b';
-
-  ctx.moveTo(pos.x, pos.y); // from
-  setPosition(e);
-  ctx.lineTo(pos.x, pos.y); // to
-
-  ctx.stroke(); // draw it!
-}
-
-
-    </script>
-   <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
+         };
+      </script>
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   </body>
 </html>
