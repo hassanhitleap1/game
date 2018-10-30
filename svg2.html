@@ -81,6 +81,7 @@
               return null;
         }
         $( "circle" ).mousedown(function() {
+            console.log('mousedown circle');
             const shape = getDrawObject();
               shapes[index] = shape;
               shape.draw(event);
@@ -88,32 +89,51 @@
 
             $( "circle" ).mousemove(function() {
                 if (shape === 'mouse paint' && shapes[index]) {
+                    console.log('mousemove circle');
                   shapes[index].draw('point', event);
               }
             });
 
-            $( "circle" ).click(function() {
-                console.log(shape +"shaop" );
-                if(shape=='undefined'){
-                    console.log(shape +"shaop" );
-                }else{
-                    if (shape === 'mouse paint') {
+            $( "circle" ).mouseup(function() {
+                console.log('mouseup circle');
+                if (shape == 'mouse paint') {
                         shapes[index].draw('stop', event);
                     } else {
                         shapes[index].draw(event);
                     }
                     index++;
-                }
+                    
             });
 
-            $( "#drawing" ).click(function() {
-                console.log(shape +"shaop" );
-                if(! shape=='undefined'){
-                    shapes.draw('stop', event)
+            $( "#drawing" ).mouseup(function() {
+                console.log('mouseup drawing');
+                if (shape == 'mouse paint') {
+                        shapes[index].draw('stop', event);
+                    } else {
+                        shapes[index].draw(event);
+                    }
+                    index++;
+                    
+            });
+
+            // $( "circle" ).click(function() {
+            //     console.log('click circle');
+            //     if(shape=='undefined'){
                    
-                }
+            //     }else{
 
-            });
+            //     }
+                
+            // });
+
+            // $( "#drawing" ).click(function() {
+            //     console.log(shape +"shaop" );
+            //     if(! shape=='undefined'){
+            //         shapes.draw('stop', event)
+                   
+            //     }
+
+            // });
       
 
   
