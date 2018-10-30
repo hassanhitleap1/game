@@ -18,3 +18,13 @@ canvas { border: 1px solid #ccc }
   #drawing2 {
     border: 1px solid #ccc;
   }
+
+  #svg{
+    border: 1px solid #ccc;  
+  }
+
+  .graph{
+    border: 1px solid black;
+   width: 100%;
+    height: 350px;
+  }
