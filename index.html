@@ -20,6 +20,7 @@
       <canvas id="c" width="500" height="300"></canvas>
       <canvas id="d" width="500" height="300"></canvas>
       <script>
+          var arrayline = [];  
          function midPointBtw(p1, p2) {
             return {
             x: p1.x + (p2.x - p1.x) / 2,
@@ -70,7 +71,8 @@
          };
          
          el.onmouseup = function() {
-            removeDrow();
+            //removeDrow();
+            drowAll();
             isDrawing = false;
             points.length = 0;
          
@@ -81,37 +83,44 @@
             var canvas = document.getElementById('d');
             if (canvas.getContext) {
                 var ctx = canvas.getContext('2d');
-                console.log(ctx);
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
             }
         }
 
-        function draw(json) {
+        function  drowAll(){
             var c = document.getElementById('d');
             var ctx=c.getContext("2d");
             ctx.beginPath();
-
-            for(var i in json){
-            ctx.lineTo(json[i].x,json[i].y);
-            }
-
-
-
-        //      var midPoint = midPointBtw(json[i].x,json[i].y);
-        //   ctx.quadraticCurveTo(p1.x, p1.y, midPoint.x, midPoint.y);
-        //   p1 = points[i];
-        //   p2 = points[i+1];
+        
+            for(var i in arrayline){
+            ctx.moveTo(arrayline[i].x, arrayline[i].y);
+            ctx.lineTo(arrayline[i].x,arrayline[i].y);
           
-        //   // Draw last line as a straight line while
-        //   // we wait for the next point to be able to calculate
-        //   // the bezier control point
-        //   ctx.lineTo(p1.x, p1.y);
-            ctx.closePath();
+            }
             ctx.globalAlpha=0.07;
             ctx.lineCap = "square";
             ctx.fill();
             ctx.stroke();
+            ctx.closePath();
+        }
+
+        function draw(json) {
+            // var c = document.getElementById('d');
+            // var ctx=c.getContext("2d");
+            // ctx.beginPath();
+            var arr = [];     
+            for(var i in json){
+                arr["x"]=json[i].x;
+                arr["y"]=json[i].y;
+            arrayline[i]=arr;
+            //ctx.lineTo(json[i].x,json[i].y);
+            }
+            // ctx.closePath();
+            // ctx.globalAlpha=0.07;
+            // ctx.lineCap = "square";
+            // ctx.fill();
+            // ctx.stroke();
         }
       </script>
       <!-- Latest compiled and minified JavaScript -->
