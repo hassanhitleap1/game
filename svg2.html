@@ -46,8 +46,7 @@
         for (let i = 0; i < 6; i++) {
           x+=250; 
           for (let i2 = 0; i2 < 6; i2++) {
-           //$('.graph').append('<g id="SvgjsG1071" x="'+x+'" y="'+y+'"><circle id='+x+' r="25" cx="25" cy="25" fill="#ff0000"></circle></g>')
-            var g = nodes.group().translate(x, y).draggy();
+            var g = nodes.group().translate(x, y);
               g.circle(50).fill("#ff0000");
                $("#"+g).attr( "x", x);
                $("#"+g).attr( "y", y);
