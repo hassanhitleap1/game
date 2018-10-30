@@ -41,16 +41,8 @@ const getDrawObject = () => {
     'stroke-width': 2,
     'fill-opacity': 0,
   };
+  return draw.polyline().attr(option);
 
-  switch (shape) {
-    case 'mouse paint':
-      return draw.polyline().attr(option);
-    case 'ellipse':
-      return draw.ellipse().attr(option);
-    case 'rect':
-      return draw.rect().attr(option);
-  }
-  return null;
 }
 
 

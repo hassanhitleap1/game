@@ -108,10 +108,9 @@
 
             $( "#drawing" ).click(function() {
                 console.log(shape +"shaop" );
-                if(shape=='undefined'){
-                    console.log(shape +"shaop" );
-                }else{
-                    console.log(shape +"shaop" );
+                if(! shape=='undefined'){
+                    shapes.draw('stop', event)
+                   
                 }
 
             });
