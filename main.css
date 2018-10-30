@@ -11,4 +11,10 @@
 canvas { border: 1px solid #ccc }
 #drawing {
     border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+
+  #drawing2 {
+    border: 1px solid #ccc;
   }

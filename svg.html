@@ -7,23 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="drawing"></div>
-Shape:
-<select id="shape">
-  <option value="mouse paint">Mouse paint</option>
-  <option value="rect">Recangle</option>
-  <option value="ellipse">Circle</option>
-</select> Color:
-<select id="color">
-  <option value="#ff0099">Pink</option>
-  <option value="#f3f313">Yellow</option>
-  <option value="#0dd5fc">Blue</option>
-  <option value="#83f52c">Green</option>
-</select>
+    <svg id="drawing"></svg>
+    <svg id="drawing2"></svg>
+
 
 <script>
 /*! svg.draw.js - v2.0.3 - 2017-06-19
@@ -69,6 +63,7 @@ draw.on('mousemove', event => {
   if (shape === 'mouse paint' && shapes[index]) {
     shapes[index].draw('point', event);
   }
+
 });
 draw.on('mouseup', event => {
   if (shape === 'mouse paint') {
@@ -78,6 +73,13 @@ draw.on('mouseup', event => {
   }
   index++;
 });
+
+$( "#drawing" ).mouseup(function() {
+    console.log("sss");
+    $(this).empty();
+   
+});
+
 
 // This is custom extension of line, polyline, polygon which doesn't draw the circle on the line. 
 SVG.Element.prototype.draw.extend('line polyline polygon', {
