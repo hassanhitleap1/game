@@ -1,50 +1,113 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.connectable.js/2.0.1/svg.connectable.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-        <div class="graph"></div>
-    <script>
-        var svg = new SVG(document.querySelector(".graph")).size("100%", 500);
-var links = svg.group();
-var markers = svg.group();
-var nodes = svg.group();
+   <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.connectable.js/2.0.1/svg.connectable.min.js"></script>
+      <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+      <script src="main.js"></script>
+      <!-- Twitter Bootstrap -->
+      <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design for Bootstrap -->
+      <link href="css/material-wfont.min.css" rel="stylesheet">
+      <link href="css/ripples.min.css" rel="stylesheet">
+      <link href="css/custom.css" rel="stylesheet">
+      <!-- Font Awesome -->
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+      <!-- svg.js -->
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+      <script src="js/svg.js"></script>
+      <script src="js/svg.connectable.js"></script>
+      <script src="js/svg.draggy.js"></script>
+   </head>
+   <body>
+      <div class="graph"></div>
+      <script>
+         var svg = new SVG(document.querySelector(".graph")).size("100%", 500);
+      
+         var nodes = svg.group();
+        
+          var links = svg.group();
+         var markers = svg.group();
+ 
+         //.fixed(true)
+         x=0;
+         y=0;
 
-var g1 = nodes.group().translate(300, 100).draggy();
-g1.circle(80).fill("#C2185B");
-
-var g2 = nodes.group().translate(100, 100).draggy();
-g2.circle(50).fill("#E91E63");
-
-var g3 = nodes.group().translate(200, 300).draggy();
-g3.circle(100).fill("#FF5252");
-
-
-g2.connectable({
-  container: links,
-  markers: markers
-}, g1).setLineColor("#5D4037");
+        for (let i = 0; i < 6; i++) {
+          x+=250; 
+          for (let i2 = 0; i2 < 6; i2++) {
+            var g = nodes.group().translate(x, y).draggy();
+              g.circle(50).fill("#ff0000");
+               $("#"+g).attr( "x", x);
+               $("#"+g).attr( "y", y);
+            y+=100;
+          }
+          y=0;
+        }
 
 
-g2.connectable({
-  padEllipse: true
-}, g3).setLineColor("#5D4037")
 
-g3.connectable({
-  padEllipse: true
-}, g2).setLineColor("#5D4037");
-        arr=['sss','ss'];
-        const shape = new Shape(arr);
-        shape.isTriangle();
-    </script>
-</body>
-</html> 
+       $( ".graph" ).mousedown(function() {
+        console.log('mousedown');
+      });
+
+      $( ".graph" ).mouseup(function() {
+        console.log('mouseup');
+      });
+
+         arr=['sss','ss'];
+         const shape = new Shape(arr);
+         shape.isTriangle();
+
+
+
+
+
+
+  // window.addEventListener("load", function () {
+  //       var svg = new SVG(document.querySelector(".graph")).size("100%", 500);
+  //       var links = svg.group();
+  //       var markers = svg.group();
+  //       var nodes = svg.group();
+
+    //     var g1 = nodes.group().translate(300, 100).draggy();
+    //     g1.circle(80).fill("#C2185B");
+
+    //     var g2 = nodes.group().translate(100, 100).draggy();
+    //     g2.circle(50).fill("#E91E63");
+
+    //     var g3 = nodes.group().translate(200, 300).draggy();
+    //     g3.circle(100).fill("#FF5252");
+
+    //     g1.connectable({
+    //         container: links,
+    //         markers: markers
+    //     }, g2).setLineColor("#5D4037");
+
+    //     g2.connectable({
+    //         container: links,
+    //         markers: markers
+    //     }, g1).setLineColor("#5D4037");
+
+
+    //     g2.connectable({
+    //         padEllipse: true
+    //     }, g3).setLineColor("#5D4037")
+
+    //     g3.connectable({
+    //         padEllipse: true
+    //     }, g2).setLineColor("#5D4037")
+    // });
+      </script>
+   </body>
+</html>
