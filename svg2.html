@@ -95,22 +95,21 @@
             });
 
             $( "g[x]" ).mousemove(function(event) {
+               
                 var id=$(this).attr('id');
                 if (shape === 'mouse paint' && shapes[index]) {
                    // console.log('mousemove circle');
                     shapes[index].draw('point', event);
 
-                    xDireaction=$( "g[x]" ).attr('x');
-                    yDireaction=$( "g[x]" ).attr('y');
+                    xDireaction=$(this ).attr('x');
+                    yDireaction=$( this ).attr('y');
 
                   if(idG != id)
                   {
                     pointsArray.push([xDireaction,yDireaction]);
                     idG=id;
                   }
-                  console.log(pointsArray);
-                   
-
+                 
                 }
             });
 
@@ -122,7 +121,6 @@
                         xDireaction=$(this).attr('x');
                         yDireaction=$(this).attr('y');
                         pointsArray.push([xDireaction,yDireaction]);
-                            
                         } catch (error) {
                             
                         }
@@ -130,6 +128,7 @@
                     } else {
                         try {
                         shapes[index].draw(event);
+                        shapeObject=new  Shape();
                             } catch (error) {
                             
                         }
@@ -143,7 +142,9 @@
                 
                     if (shape === 'mouse paint') {
                         try {
-                            shapes[index].draw('stop', event);  
+                            shapes[index].draw('stop', event); 
+                            shapeObject=new  Shape(pointsArray); 
+                            shapeObject.isCircle();
                         } catch (error) {
                             
                         }

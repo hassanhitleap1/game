@@ -1,11 +1,16 @@
 class Shape {
     
-    constructor(arr) {
-        this.points=arr;
+    constructor(pointsArray) {
+        this.points=pointsArray;
+       
     }
 
     // Adding a method to the constructor
     isCircle() {
+       
+        this.points.forEach(function(entry) {
+            console.log(entry);
+        });
        if(true){
         console.log("isCircle");
        }else{
@@ -38,3 +43,4 @@ class Shape {
            } 
     }
 }
+
