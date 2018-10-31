@@ -82,7 +82,7 @@
               return null;
         }
         $( "circle" ).mousedown(function() {
-            console.log('mousedown circle');
+           // console.log('mousedown circle');
             const shape = getDrawObject();
               shapes[index] = shape;
               shape.draw(event);
@@ -90,15 +90,21 @@
 
             $( "circle" ).mousemove(function() {
                 if (shape === 'mouse paint' && shapes[index]) {
-                    console.log('mousemove circle');
+                   // console.log('mousemove circle');
                   shapes[index].draw('point', event);
+                 
               }
             });
 
             $( "circle" ).mouseup(function() {
-                console.log('mouseup circle');
+                //console.log('mouseup circle');
                 if (shape == 'mouse paint') {
-                        shapes[index].draw('stop', event);
+                        try {
+                        shapes[index].draw('stop', event); 
+                        } catch (error) {
+                            
+                        }
+                        
                     } else {
                         shapes[index].draw(event);
                     }
@@ -108,7 +114,7 @@
 
 
             $( "#drawing" ).mouseup(function() {
-                console.log('mouseup drawing');
+                //console.log('mouseup drawing');
                 
                     if (shape === 'mouse paint') {
                         try {
@@ -140,9 +146,49 @@
             //             console.log(xDirextion);
             // });
 
-            $( "circle").mouseout(function(){
-                console.log("mouseenter enterleave");
-            });
+            // $( "circle.overout" )
+            // .mouseover(function() {
+            //     console.log("overout mouseenter");
+            // })
+            // .mouseout(function() {
+            //     console.log("overout mouseout");
+            // });
+            
+      
+            // $( "div.enterleave" )
+            // .mouseenter(function() {
+            //     console.log("enterleave mouseenter");
+            // })
+            // .mouseleave(function() {
+            //     console.log("enterleave mouseout");
+            // });
+            // $( "g[x]" ).mouseover(function() {
+            //     if (shape === 'mouse paint' && shapes[index]) {
+            //        // console.log("g[x] mouseover");
+            //     }
+               
+            // });
+            // function eventshow(elemant){
+            //     $( "g[x]" ).mouseover(function() {
+               
+            //         console.log("g[x] mouseover");
+                
+               
+            // });//mouseenter
+            // $( "g[x]" ).mouseenter(function() {
+               
+            //    console.log("g[x] mouseover");
+           
+          
+            //     });//mouseenter
+            // }
+            //   $( "svg.overout" )
+            //         .mouseover(function() {
+            //     console.log("overout mouseenter");
+            // })
+            //         .mouseout(function() {
+            //     console.log("overout mouseout");
+            // });
   
       </script>
    </body>
