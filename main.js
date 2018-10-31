@@ -3,7 +3,11 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-        console.log(this.points);
+        console.log((this.nodesPoint-1)/2);
+       if(((this.nodesPoint-1)/2) <= 2){
+        console.log("notsqure");
+       }
+        
 
     }
 
