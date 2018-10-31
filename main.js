@@ -2,9 +2,9 @@ class Shape {
     
     constructor(pointsArray) {
         this.points=pointsArray;
-        this.nodePoint=pointsArray.length;
-        console.log('initiozion object');
-       
+        this.nodesPoint=pointsArray.length;
+        console.log(this.points);
+
     }
 
     // Adding a method to the constructor
@@ -38,27 +38,41 @@ class Shape {
     }
 
     isSquare() {
-        this.islineRow();
+        //this.islineRow();
+        //this.islineColumn();
+
     }
 
     islineRow(){
-        points=this.points;
-        //console.log(this.points[0][0]);
-        //firstNodeLeft=(this.points[0][0]);
-        console.log(this.points);
-
+        var correct=true;
+        var firstNodeLeft=this.points[0][0];
+        
         for (let index = 0; index < this.points.length; index++) {
-           
-            console.log( this.points[index] );
-            
+           if(firstNodeLeft != this.points[index][0]){
+            correct=false;
+           }
         }
-   
-        // this.points.forEach(function(arr) {
-        //     console.log(arr);
-        //     // if(! firstNodeLeft==arr[0]){
-        //     //     console.log("not line");
-        //     // }
-        // });  
+        if(correct){
+            console.log('it is true');
+        }else{
+            console.log('it is false');  
+        } 
+    }
+
+    islineColumn(){
+        var correct=true;
+        var firstNodeRight=this.points[0][1];
+        
+        for (let index = 0; index < this.points.length; index++) {
+           if(firstNodeRight != this.points[index][1]){
+            correct=false;
+           }
+        }
+        if(correct){
+            console.log('it is true');
+        }else{
+            console.log('it is false');  
+        } 
     }
 }
 
