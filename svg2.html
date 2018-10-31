@@ -8,6 +8,10 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.6/svg.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.connectable.js/2.0.1/svg.connectable.min.js"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
       <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
       <script src="main.js"></script>
       <!-- Twitter Bootstrap -->
@@ -55,8 +59,8 @@
                  for (let i2 = 0; i2 < 6; i2++) {
                      var g = nodes.group().translate(x, y);
                      g.circle(50).fill("#ff0000");
-                     $("#"+g).attr( "x", x);
-                     $("#"+g).attr( "y", y);
+                     $("#"+g).attr( "x", i);
+                     $("#"+g).attr( "y", i2);
                      y+=100;
                  }
                  y=0;
@@ -121,6 +125,8 @@
                         xDireaction=$(this).attr('x');
                         yDireaction=$(this).attr('y');
                         pointsArray.push([xDireaction,yDireaction]);
+                        shapeObject=new  Shape(pointsArray); 
+                            shapeObject.isSquare();
                         } catch (error) {
                             
                         }
@@ -144,7 +150,7 @@
                         try {
                             shapes[index].draw('stop', event); 
                             shapeObject=new  Shape(pointsArray); 
-                            shapeObject.isCircle();
+                            shapeObject.isSquare();
                         } catch (error) {
                             
                         }
