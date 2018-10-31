@@ -106,36 +106,25 @@
                     
             });
 
+
             $( "#drawing" ).mouseup(function() {
                 console.log('mouseup drawing');
-                if (shape == 'mouse paint') {
-                        shapes[index].draw('stop', event);
+                
+                    if (shape === 'mouse paint') {
+                        try {
+                            shapes[index].draw('stop', event);  
+                        } catch (error) {
+                            
+                        }
+                        
                     } else {
-                        shapes[index].draw(event);
+                        if(!shape=='undefined'){
+                            shapes[index].draw(event);
+                        }
                     }
                     index++;
                     
             });
-
-            // $( "circle" ).click(function() {
-            //     console.log('click circle');
-            //     if(shape=='undefined'){
-                   
-            //     }else{
-
-            //     }
-                
-            // });
-
-            // $( "#drawing" ).click(function() {
-            //     console.log(shape +"shaop" );
-            //     if(! shape=='undefined'){
-            //         shapes.draw('stop', event)
-                   
-            //     }
-
-            // });
-      
 
   
       </script>
