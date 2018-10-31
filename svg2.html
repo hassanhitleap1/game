@@ -105,7 +105,7 @@
 
                   if(idG != id)
                   {
-                    pointsArray+=[[xDireaction,yDireaction]];
+                    pointsArray.push([xDireaction,yDireaction]);
                     idG=id;
                   }
                   console.log(pointsArray);
@@ -121,7 +121,8 @@
                         shapes[index].draw('stop', event); 
                         xDireaction=$(this).attr('x');
                         yDireaction=$(this).attr('y');
-                        pointsArray=[[xDireaction,yDireaction]];
+                        pointsArray.push([xDireaction,yDireaction]);
+                            
                         } catch (error) {
                             
                         }
