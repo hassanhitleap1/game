@@ -3,7 +3,8 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-        this.isSquare();
+        // this.isSquare();
+        this.isRectangle();
     }
 
     // Adding a method to the constructor
@@ -20,11 +21,26 @@ class Shape {
     }
 
     isRectangle(){
-        if(true){
-            console.log("isRectangle");
-           }else{
-            console.log("not isRectangle");
-           }
+        if(this.finalNodeEqFirstNode() && this.isEvenNode(this.nodesPoint)){
+            if(this.isGolineColumn()){
+                   // console.log('isGolineColumn');
+                 var stratFromNode=this.sumNodeINColumn();
+                 if(stratFromNode !=this.sumNodeINRowColumn(stratFromNode)){
+                     console.log("its isRectangle");
+                     return true; 
+                 }
+             }
+             if(this.isGoLineRow()){
+                  //  console.log('isGoLineRow');
+                 var stratFromNode=this.sumNodeINRow();
+                 if(stratFromNode!=this.sumNodeINColumnRow(stratFromNode)){
+                     console.log("its isRectangle");
+                     return true; 
+                 }
+             }
+             return false;
+        }
+        return false;
     }
 
     
@@ -39,10 +55,9 @@ class Shape {
     isSquare() {
      
         if(this.finalNodeEqFirstNode() && this.isEvenNode(this.nodesPoint)){
-            
             //console.log("finalNodeEqFirstNode && isEvenNode");
             if(this.isGolineColumn()){
-                console.log('isGolineColumn');
+               // console.log('isGolineColumn');
                 var stratFromNode=this.sumNodeINColumn();
                 if(stratFromNode==this.sumNodeINRowColumn(stratFromNode)){
                     console.log("its squre");
@@ -50,19 +65,16 @@ class Shape {
                 }
             }
             if(this.isGoLineRow()){
-                console.log('isGoLineRow');
+               // console.log('isGoLineRow');
                 var stratFromNode=this.sumNodeINRow();
                 if(stratFromNode==this.sumNodeINColumnRow(stratFromNode)){
                     console.log("its squre");
                     return true; 
                 }
             }
+            return false;
         }
-   
-
-
-
-       
+        return false;  
         
     }
 
@@ -146,7 +158,7 @@ class Shape {
         if(this.finalNodeEqFirstNode()){
             --sumNode;
         }
-        console.log("sumNodeINColumn ="+sumNode);
+        //console.log("sumNodeINColumn ="+sumNode);
         return sumNode;
     }
 
