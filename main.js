@@ -4,7 +4,8 @@ class Shape {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
         // this.isSquare();
-        this.isRectangle();
+        //this.isRectangle();
+        this.isTriangle();
     }
 
     // Adding a method to the constructor
@@ -45,11 +46,41 @@ class Shape {
 
     
     isTriangle(){
-        if(true){
-            console.log("isTriangle");
-           }else{
-            console.log("not isTriangle");
-           }
+        if(this.finalNodeEqFirstNode()){
+            console.log('finalNodeEqFirstNode');
+        }
+
+        if(this.isGolineColumn()){
+            console.log('isGolineColumn');
+          var corner=this.cornerColumn();
+          console.log(corner);
+       
+        }
+        if(this.isGoLineRow()){
+             console.log('isGoLineRow');
+            var corner=this.cornerRow();
+            console.log(corner);
+        
+        }
+
+
+
+        // var firstNodeRow=this.points[1][0];
+        // var firstNodeColumn=this.points[1][1];
+        // var secoundNodeRow=this.points[2][0];
+        // var secoundNodeColumn=this.points[2][1];
+        // console.log(this.points);
+        // console.log('firstNodeRow= '+firstNodeRow+" firstNodeColumn="+firstNodeColumn
+        // +" secoundNodeRow="+secoundNodeRow+" secoundNodeColumn="+secoundNodeColumn);
+
+        // if(firstNodeRow==secoundNodeRow){
+        //     console.log("line mostaqem");
+        // }
+        // if(firstNodeColumn==secoundNodeColumn){
+        //     console.log("line mostaqem"); 
+        // }
+      
+      
     }
 
     isSquare() {
@@ -210,6 +241,41 @@ class Shape {
         return sumNode;
     }
 
+    cornerColumn(){
+        let corner;
+        let colum =0;
+        let row=1;
+        let firstNodeRight=this.points[1][1];
+        
+        for (++colum; colum < this.points.length; colum++) {
+            if(firstNodeRight==this.points[colum][row]){
+                corner=this.points[colum];
+            }
+        }
+        // if(this.finalNodeEqFirstNode()){
+        //     --sumNode;
+        // }
+        //console.log("sumNodeINColumn ="+sumNode);
+        return corner;
+    }
+
+    cornerRow(){
+        let corner;
+        let colum =0;
+        let row=0;
+        let firstNodeLeft=this.points[1][0];
+        
+        for (++colum; colum < this.points.length; colum++) {
+            if(firstNodeLeft==this.points[colum][row]){
+                corner=this.points[colum];
+            }
+        }
+        // if(this.finalNodeEqFirstNode()){
+        //     --sumNode;
+        // }
+        //console.log("start form  sumNodeINColumn ="+sumNode);
+        return corner;
+    }
 
     isEvenNode(number){
         if (number % 2 == 0){
