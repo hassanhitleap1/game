@@ -46,25 +46,35 @@ class Shape {
 
     
     isTriangle(){
-        if(this.finalNodeEqFirstNode()){
-            console.log('finalNodeEqFirstNode');
+        // if(!this.isSquare()){
+
+        // }
+        // if(!this.isRectangle()){
+            
+        // }
+        // if(! this.isEvenNode(this.nodesPoint)){
+        //     console.log('not even ')
+        // }
+
+        if(this.finalNodeEqFirstNode() ){
+          //  console.log('finalNodeEqFirstNode');
         }
 
         if(this.isGolineColumn()){
-            console.log('isGolineColumn');
+            console.log('isGolineColumn corner in right ');
           var corner=this.cornerColumn();
-          console.log(corner);
+         // console.log(corner);
        
         }
         if(this.isGoLineRow()){
-             console.log('isGoLineRow');
+            console.log('isGoLineRow corner in left');
             var corner=this.cornerRow();
-            console.log(corner);
+           // console.log(corner);
         
         }
 
 
-
+        this.corner();
         // var firstNodeRow=this.points[1][0];
         // var firstNodeColumn=this.points[1][1];
         // var secoundNodeRow=this.points[2][0];
@@ -276,6 +286,24 @@ class Shape {
         //console.log("start form  sumNodeINColumn ="+sumNode);
         return corner;
     }
+
+
+
+    corner() { 
+        let cornerlimt;
+
+        for (let index = 1; index < this.points.length; index++) {
+            var arr= this.points[index];
+           if(--this.points[index+1][0]==arr[0] && arr[0] == ++this.points[index-1][0] ){
+                console.log('true');
+           }
+           if(++this.points[index+1][0]==arr[0] && arr[0] == --this.points[index-1][0] ){
+                    console.log('true');
+            }
+        }
+     }
+
+
 
     isEvenNode(number){
         if (number % 2 == 0){
