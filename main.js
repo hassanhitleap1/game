@@ -43,48 +43,45 @@ class Shape {
 
     isSquare() {
         
-        // if(this.finalNodeEqFirstNode()&& this.isEvenNode(this.nodesPoint) )
-        // {
-        //     if(this.isGolineColumn())
-        //     {
-        //         if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
-        //             return true;
-        //         }
-        //     } 
-        //     if(this.isGoLineRow())
-        //     {
-        //         if(this.sumNodeINRow()==this.sumNodeINColumnRow())
-        //         {
-        //             return true;
-        //         }
-        //     }
-        //     return false;
+        if(this.finalNodeEqFirstNode()&& this.isEvenNode(this.nodesPoint) )
+        {
+            if(this.isGolineColumn())
+            {
+                if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
+                    return true;
+                }
+            } 
+            if(this.isGoLineRow())
+            {
+                if(this.sumNodeINRow()==this.sumNodeINColumnRow())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+
+        // if(this.finalNodeEqFirstNode()){
+            
+
         // }
-        // return false;
+        // if(this.isEvenNode(this.nodesPoint)){
+           
+        // }
+        // if(this.isGolineColumn()){
+             
+        //     if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
 
-        if(this.finalNodeEqFirstNode()){
-            console.log("finalNodeEqFirstNode");
+        //     }
+        // }
 
-        }
-        if(this.isEvenNode(this.nodesPoint)){
-            console.log("isEvenNode");
-        }
-        if(this.isGolineColumn()){
-            console.log(" isGolineColumn");  
-            if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
-                console.log(this.sumNodeINColumn());
-                console.log(this.sumNodeINRowColumn());
-            }
-        }
+        // if(this.isGoLineRow()){
+           
+        //     if(this.sumNodeINRow()==this.sumNodeINColumnRow()){
 
-        if(this.isGoLineRow()){
-            console.log("isGoLineRow");
-            if(this.sumNodeINRow()==this.sumNodeINColumnRow()){
-                console.log('it si suqre');
-                console.log(this.sumNodeINRow()); 
-                console.log(this.sumNodeINColumnRow())
-            }
-        }
+        //     }
+        // }
        
         
     }
@@ -189,7 +186,7 @@ class Shape {
         let sumNode=0;
         let colum =this.sumNodeINRow();
         let row=1;
-        let firstNodeRight=this.points[this.sumNodeINRow()+1][1];
+        let firstNodeRight=this.points[colum][1];
         
         for (colum; colum < this.points.length; colum++) {
             if(firstNodeRight==this.points[colum][row]){
