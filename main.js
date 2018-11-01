@@ -3,7 +3,11 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-        this.isSquare();
+        if(this.isSquare()){
+            console.log('it is sqeraure');
+        }else{
+            console.log('it is note sqeraure');
+        }
 
     }
 
@@ -39,19 +43,39 @@ class Shape {
 
     isSquare() {
         
-        // if(this.finalNodeEqFirstNode()){
-        //     console.log("finalNodeEqFirstNode");
+        // if(this.finalNodeEqFirstNode()&& this.isEvenNode(this.nodesPoint) )
+        // {
+        //     if(this.isGolineColumn())
+        //     {
+        //         if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
+        //             return true;
+        //         }
+        //     } 
+        //     if(this.isGoLineRow())
+        //     {
+        //         if(this.sumNodeINRow()==this.sumNodeINColumnRow())
+        //         {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
+        // return false;
 
-        // }
-        // if(this.isEvenNode(this.nodesPoint)){
-        //     console.log("isEvenNode");
-        // }
-        // if(this.isGolineColumn()){
-        //     console.log(" isGolineColumn");  
-        //    console.log(this.sumNodeINColumn());
-        // }else{
-        //     console.log("Not isGolineColumn");  
-        // }
+        if(this.finalNodeEqFirstNode()){
+            console.log("finalNodeEqFirstNode");
+
+        }
+        if(this.isEvenNode(this.nodesPoint)){
+            console.log("isEvenNode");
+        }
+        if(this.isGolineColumn()){
+            console.log(" isGolineColumn");  
+            if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
+                console.log(this.sumNodeINColumn());
+                console.log(this.sumNodeINRowColumn());
+            }
+        }
 
         if(this.isGoLineRow()){
             console.log("isGoLineRow");
@@ -60,10 +84,6 @@ class Shape {
                 console.log(this.sumNodeINRow()); 
                 console.log(this.sumNodeINColumnRow())
             }
-        
-
-        }else{
-            console.log("Not isGoLineRow");  
         }
        
         
@@ -107,6 +127,7 @@ class Shape {
         var xfainalNode=this.points[this.points.length-1][0];
         var yfainalNode=this.points[this.points.length-1][1];
        if((xfirstNode==xfainalNode) && (yfirstNode==yfainalNode)){
+           console.log('finalNodeEqFirstNode true');
             return true
        }
       
@@ -118,6 +139,7 @@ class Shape {
         var firstNodeLeft=this.points[1][0];
         var secoundNodeLeft=this.points[2][0];
         if(firstNodeLeft==secoundNodeLeft){
+            console.log("isGoLineRow true");
             return true;
         }
         return false;
@@ -127,6 +149,7 @@ class Shape {
         var firstNodeRight=this.points[1][1];
         var secoundNodeRight=this.points[2][1];
         if(firstNodeRight==secoundNodeRight){
+            console.log("isGolineColumn true");
             return true;
         }
         return false;
@@ -143,6 +166,7 @@ class Shape {
                 sumNode+=1;
             }
         }
+        console.log("sumNodeINColumn ="+sumNode);
         return sumNode;
     }
 
@@ -157,6 +181,7 @@ class Shape {
                 sumNode+=1;
             }
         }
+        console.log("sumNodeINColumn ="+sumNode);
         return sumNode;
     }
 
@@ -171,19 +196,34 @@ class Shape {
                 sumNode+=1;
             }
         }
+        console.log("sumNodeINColumnRow ="+sumNode);
         return sumNode;
     }
 
+    sumNodeINRowColumn(){
+        let sumNode=0;
+        let colum =this.sumNodeINColumn();
+        let row=0;
+        let firstNodeLeft=this.points[colum][0];
+        
+        for (colum; colum < this.points.length; colum++) {
+            if(firstNodeLeft==this.points[colum][row]){
+                sumNode+=1;
+            }
+        }
+        console.log("sumNodeINRowColumn ="+sumNode);
+        return sumNode;
+    }
+
+
     isEvenNode(number){
         if (number % 2 == 0){
-
+            console.log("isEvenNode true");
             return(true);
          }
          else{
             return(false);    
          }
     }
-
-
 }
 
