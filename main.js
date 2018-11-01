@@ -5,7 +5,8 @@ class Shape {
         this.nodesPoint=pointsArray.length;
         // this.isSquare();
         //this.isRectangle();
-        this.isTriangle();
+        //this.isTriangle();
+        this.moin();
     }
 
     // Adding a method to the constructor
@@ -44,7 +45,21 @@ class Shape {
         return false;
     }
 
-    
+    moin(){
+        if(!this.isSquare()){
+
+        }
+        if(!this.isRectangle()){
+            
+        }
+        if(this.isEvenNode(this.nodesPoint)){
+            console.log('not even ');
+        }
+
+        if(this.finalNodeEqFirstNode()){
+             console.log('finalNodeEqFirstNode');
+        }
+    }
     isTriangle(){
         // if(!this.isSquare()){
 
@@ -71,6 +86,8 @@ class Shape {
             var corner=this.cornerRow();
            // console.log(corner);
         
+        }else{
+
         }
 
 
