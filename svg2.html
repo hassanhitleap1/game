@@ -104,7 +104,7 @@
                 if (shape === 'mouse paint' && shapes[index]) {
                    // console.log('mousemove circle');
                     shapes[index].draw('point', event);
-
+                    
                     xDireaction=$(this ).attr('x');
                     yDireaction=$( this ).attr('y');
 
@@ -126,7 +126,7 @@
                         yDireaction=$(this).attr('y');
                         pointsArray.push([xDireaction,yDireaction]);
                         shapeObject=new  Shape(pointsArray); 
-                            shapeObject.isSquare();
+                            
                         } catch (error) {
                             
                         }
@@ -150,7 +150,7 @@
                         try {
                             shapes[index].draw('stop', event); 
                             shapeObject=new  Shape(pointsArray); 
-                            shapeObject.isSquare();
+                            
                         } catch (error) {
                             
                         }

@@ -3,11 +3,7 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-        console.log((this.nodesPoint-1)/2);
-       if(((this.nodesPoint-1)/2) <= 2){
-        console.log("notsqure");
-       }
-        
+        this.isSquare();
 
     }
 
@@ -42,9 +38,26 @@ class Shape {
     }
 
     isSquare() {
-        //this.islineRow();
-        //this.islineColumn();
+        // if(this.finalNodeEqFirstNode()){
+        //     console.log("finalNodeEqFirstNode");
 
+        // }
+        // if(this.isEvenNode(this.nodesPoint)){
+        //     console.log("isEvenNode");
+        // }
+        if(this.isGolineColumn()){
+            this.sumNodeINColumn();
+        }else{
+            console.log("Not isGolineColumn");  
+        }
+
+        if(this.isGoLineRow()){
+            console.log("isGoLineRow"); 
+        }else{
+            console.log("Not isGoLineRow");  
+        }
+       
+        
     }
 
     islineRow(){
@@ -57,9 +70,9 @@ class Shape {
            }
         }
         if(correct){
-            console.log('it is true');
+            return true;
         }else{
-            console.log('it is false');  
+            return false;
         } 
     }
 
@@ -73,10 +86,54 @@ class Shape {
            }
         }
         if(correct){
-            console.log('it is true');
+            return true;
         }else{
-            console.log('it is false');  
+            return false;
         } 
+    }
+
+    finalNodeEqFirstNode(){
+        var xfirstNode=this.points[0][0];
+        var yfirstNode=this.points[0][1];
+        var xfainalNode=this.points[this.points.length-1][0];
+        var yfainalNode=this.points[this.points.length-1][1];
+       if((xfirstNode==xfainalNode) && (yfirstNode==yfainalNode)){
+            return true
+       }
+      
+       return false;
+    }
+
+
+    isGoLineRow(){
+        var firstNodeLeft=this.points[1][0];
+        var secoundNodeLeft=this.points[2][0];
+        if(firstNodeLeft==secoundNodeLeft){
+            return true;
+        }
+        return false;
+    } 
+
+    isGolineColumn(){
+        var firstNodeRight=this.points[1][1];
+        var secoundNodeRight=this.points[2][1];
+        if(firstNodeRight==secoundNodeRight){
+            return true;
+        }
+        return false;
+    }
+
+    sumNodeINColumn(){
+
+    }
+    isEvenNode(number){
+        if (number % 2 == 0){
+
+            return(true);
+         }
+         else{
+            return(false);    
+         }
     }
 }
 
