@@ -3,12 +3,7 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-        if(this.isSquare()){
-            console.log('it is sqeraure');
-        }else{
-            console.log('it is note sqeraure');
-        }
-
+        this.isSquare();
     }
 
     // Adding a method to the constructor
@@ -42,46 +37,31 @@ class Shape {
     }
 
     isSquare() {
-        
-        if(this.finalNodeEqFirstNode()&& this.isEvenNode(this.nodesPoint) )
-        {
-            if(this.isGolineColumn())
-            {
-                if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
-                    return true;
-                }
-            } 
-            if(this.isGoLineRow())
-            {
-                if(this.sumNodeINRow()==this.sumNodeINColumnRow())
-                {
-                    return true;
+     
+        if(this.finalNodeEqFirstNode() && this.isEvenNode(this.nodesPoint)){
+            
+            //console.log("finalNodeEqFirstNode && isEvenNode");
+            if(this.isGolineColumn()){
+                console.log('isGolineColumn');
+                var stratFromNode=this.sumNodeINColumn();
+                if(stratFromNode==this.sumNodeINRowColumn(stratFromNode)){
+                    console.log("its squre");
+                    return true; 
                 }
             }
-            return false;
+            if(this.isGoLineRow()){
+                console.log('isGoLineRow');
+                var stratFromNode=this.sumNodeINRow();
+                if(stratFromNode==this.sumNodeINColumnRow(stratFromNode)){
+                    console.log("its squre");
+                    return true; 
+                }
+            }
         }
-        return false;
+   
 
-        // if(this.finalNodeEqFirstNode()){
-            
 
-        // }
-        // if(this.isEvenNode(this.nodesPoint)){
-           
-        // }
-        // if(this.isGolineColumn()){
-             
-        //     if(this.sumNodeINColumn()==this.sumNodeINRowColumn()){
 
-        //     }
-        // }
-
-        // if(this.isGoLineRow()){
-           
-        //     if(this.sumNodeINRow()==this.sumNodeINColumnRow()){
-
-        //     }
-        // }
        
         
     }
@@ -124,7 +104,7 @@ class Shape {
         var xfainalNode=this.points[this.points.length-1][0];
         var yfainalNode=this.points[this.points.length-1][1];
        if((xfirstNode==xfainalNode) && (yfirstNode==yfainalNode)){
-           console.log('finalNodeEqFirstNode true');
+           //console.log('finalNodeEqFirstNode true');
             return true
        }
       
@@ -136,7 +116,7 @@ class Shape {
         var firstNodeLeft=this.points[1][0];
         var secoundNodeLeft=this.points[2][0];
         if(firstNodeLeft==secoundNodeLeft){
-            console.log("isGoLineRow true");
+            //console.log("isGoLineRow true");
             return true;
         }
         return false;
@@ -146,7 +126,7 @@ class Shape {
         var firstNodeRight=this.points[1][1];
         var secoundNodeRight=this.points[2][1];
         if(firstNodeRight==secoundNodeRight){
-            console.log("isGolineColumn true");
+            //console.log("isGolineColumn true");
             return true;
         }
         return false;
@@ -163,6 +143,9 @@ class Shape {
                 sumNode+=1;
             }
         }
+        if(this.finalNodeEqFirstNode()){
+            --sumNode;
+        }
         console.log("sumNodeINColumn ="+sumNode);
         return sumNode;
     }
@@ -178,13 +161,16 @@ class Shape {
                 sumNode+=1;
             }
         }
-        console.log("sumNodeINColumn ="+sumNode);
+        if(this.finalNodeEqFirstNode()){
+            --sumNode;
+        }
+        //console.log("start form  sumNodeINColumn ="+sumNode);
         return sumNode;
     }
 
-    sumNodeINColumnRow(){
+    sumNodeINColumnRow(stratFromNode){
         let sumNode=0;
-        let colum =this.sumNodeINRow();
+        let colum =stratFromNode;
         let row=1;
         let firstNodeRight=this.points[colum][1];
         
@@ -193,13 +179,13 @@ class Shape {
                 sumNode+=1;
             }
         }
-        console.log("sumNodeINColumnRow ="+sumNode);
+        //console.log("sumNodeINColumnRow ="+sumNode+" start form  " +colum);
         return sumNode;
     }
 
-    sumNodeINRowColumn(){
+    sumNodeINRowColumn(stratFromNode){
         let sumNode=0;
-        let colum =this.sumNodeINColumn();
+        let colum =stratFromNode;
         let row=0;
         let firstNodeLeft=this.points[colum][0];
         
@@ -208,14 +194,14 @@ class Shape {
                 sumNode+=1;
             }
         }
-        console.log("sumNodeINRowColumn ="+sumNode);
+        // console.log("sumNodeINRowColumn ="+sumNode);
         return sumNode;
     }
 
 
     isEvenNode(number){
         if (number % 2 == 0){
-            console.log("isEvenNode true");
+            //console.log("isEvenNode true");
             return(true);
          }
          else{
