@@ -47,10 +47,10 @@ class Shape {
 
     moin(){
         if(!this.isSquare()){
-
+            console.log('not isSquare ');
         }
         if(!this.isRectangle()){
-            
+            console.log('not isRectangle ');
         }
         if(this.isEvenNode(this.nodesPoint)){
             console.log('not even ');
