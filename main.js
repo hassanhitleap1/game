@@ -331,49 +331,51 @@ class Shape {
         let four;
         
         for (let index = 1; index < this.points.length; index++) {
-            one = 0; two = 0; three = 0; four = 0;
-            one = this.points[index - 1][0] - this.points[index][0];
-            two = this.points[index][1]-this.points[index - 1][1] ;
-            three = this.points[index + 1][0] - this.points[index][0];
-            four = this.points[index + 1][1] - this.points[index][1];
-            
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount += 1;
-                one=0;two=0;three=0;four=0;
-            }
-            
-            one = this.points[index][0]-this.points[index - 1][0] ;
-            two = this.points[index][1] - this.points[index - 1][1];
-            three = this.points[index + 1][0] - this.points[index][0];
-            four = this.points[index][1]-this.points[index + 1][1] ;
-
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount += 1;
+            if (this.points.length > index) {
                 one = 0; two = 0; three = 0; four = 0;
+                one = this.points[index - 1][0] - this.points[index][0];
+                two = this.points[index][1]-this.points[index - 1][1] ;
+                three = this.points[index + 1][0] - this.points[index][0];
+                four = this.points[index + 1][1] - this.points[index][1];
+                
+                if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
+                    cornerCount += 1;
+                    one=0;two=0;three=0;four=0;
+                }
+                
+                one = this.points[index][0]-this.points[index - 1][0] ;
+                two = this.points[index][1] - this.points[index - 1][1];
+                three = this.points[index + 1][0] - this.points[index][0];
+                four = this.points[index][1]-this.points[index + 1][1] ;
+
+                if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
+                    cornerCount += 1;
+                    one = 0; two = 0; three = 0; four = 0;
+                }
+
+                one = this.points[index][0] - this.points[index - 1][0];
+                two = this.points[index - 1][1] - this.points[index][1];
+                three = this.points[index][0] - this.points[index + 1][0];
+                four = this.points[index][1] - this.points[index + 1][1];
+
+                if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
+                    cornerCount += 1;
+                    one = 0; two = 0; three = 0; four = 0;
+                }
+
+                one = this.points[index][0] - this.points[index - 1][0];
+                two = this.points[index - 1][1] - this.points[index][1];
+                three = this.points[index][0] - this.points[index + 1][0];
+                four = (this.points[index][1]) - this.points[index + 1][1];
+
+                if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
+                    cornerCount+=1;
+                    one = 0; two = 0; three = 0; four = 0;
+                }
             }
-
-            one = this.points[index][0] - this.points[index - 1][0];
-            two = this.points[index - 1][1] - this.points[index][1];
-            three = this.points[index][0] - this.points[index + 1][0];
-            four = this.points[index][1] - this.points[index + 1][1];
-
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount += 1;
-                one = 0; two = 0; three = 0; four = 0;
-            }
-
-            one = this.points[index][0] - this.points[index - 1][0];
-            two = this.points[index - 1][1] - this.points[index][1];
-            three = this.points[index][0] - this.points[index + 1][0];
-            four = (this.points[index][1]) - this.points[index + 1][1];
-
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount+=1;
-                one = 0; two = 0; three = 0; four = 0;
-            }
-            console.log(cornerCount); 
+          
         }
-       
+        console.log(cornerCount); 
         return cornerCount;
     }
 
