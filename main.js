@@ -55,10 +55,10 @@ class Shape {
         // }
         console.log(this.cornerCouunt());
         
-        if (this.cornerCouunt() >= 2){
-            console.log('corun count');
+        // if (this.cornerCouunt() >= 2){
+        //     console.log('corun count');
             
-        }
+        // }
     }
 
 
@@ -338,7 +338,7 @@ class Shape {
             four = this.points[index + 1][1] - this.points[index][1];
             
             if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount++; 
+                cornerCount += 1;
                 one=0;two=0;three=0;four=0;
             }
             
@@ -348,7 +348,7 @@ class Shape {
             four = this.points[index][1]-this.points[index + 1][1] ;
 
             if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount++;
+                cornerCount += 1;
                 one = 0; two = 0; three = 0; four = 0;
             }
 
@@ -358,7 +358,7 @@ class Shape {
             four = this.points[index][1] - this.points[index + 1][1];
 
             if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount++;
+                cornerCount += 1;
                 one = 0; two = 0; three = 0; four = 0;
             }
 
@@ -368,12 +368,12 @@ class Shape {
             four = (this.points[index][1]) - this.points[index + 1][1];
 
             if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount++;
+                cornerCount+=1;
                 one = 0; two = 0; three = 0; four = 0;
             }
-             
+            console.log(cornerCount); 
         }
-        console.log(cornerCount);
+       
         return cornerCount;
     }
 
