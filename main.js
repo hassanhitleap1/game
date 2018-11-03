@@ -6,7 +6,7 @@ class Shape {
         // this.isSquare();
         //this.isRectangle();
         //this.isTriangle();
-        this.moin();
+       // this.moin();
     }
 
     // Adding a method to the constructor
@@ -46,19 +46,9 @@ class Shape {
     }
 
     moin(){
-        // if (!this.isSquare() && this.cornerCouunt() && !this.isRectangle() && this.isEvenNode(this.nodesPoint) && this.finalNodeEqFirstNode()){
-        //     console.log('is moin ');
-        // }
-        // if (!this.isSquare()){
-        //     console.log('not squre');
-            
-        // }
-        console.log(this.cornerCouunt());
-        
-        // if (this.cornerCouunt() >= 2){
-        //     console.log('corun count');
-            
-        // }
+        if (!this.isSquare() && this.cornerCouunt() && !this.isRectangle() && this.isEvenNode(this.nodesPoint) && this.finalNodeEqFirstNode()){
+            console.log('is moin ');
+        }
     }
 
 
@@ -331,7 +321,6 @@ class Shape {
         let four;
         
         for (let index = 1; index < this.points.length; index++) {
-            if (this.points.length > index) {
                 one = 0; two = 0; three = 0; four = 0;
                 one = this.points[index - 1][0] - this.points[index][0];
                 two = this.points[index][1]-this.points[index - 1][1] ;
@@ -372,13 +361,12 @@ class Shape {
                     cornerCount+=1;
                     one = 0; two = 0; three = 0; four = 0;
                 }
-                
-       
+                if (cornerCount>=3){
+                    return true;
+                }
+             
             }
-            console.log(cornerCount); 
-        }
-        
-        return cornerCount;
+        return flase;
     }
 
     isEvenNode(number){
