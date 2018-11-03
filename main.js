@@ -372,10 +372,12 @@ class Shape {
                     cornerCount+=1;
                     one = 0; two = 0; three = 0; four = 0;
                 }
+                
+       
             }
-          
+            console.log(cornerCount); 
         }
-        console.log(cornerCount); 
+        
         return cornerCount;
     }
 
