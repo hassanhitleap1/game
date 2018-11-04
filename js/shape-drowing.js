@@ -60,19 +60,19 @@ function drowShape1(nodesh1,linkssh1,markerssh1){
     g1.connectable({
                 container: linkssh1,
                 markers: markerssh1
-            }, g2).setLineColor("#5D4037");  
+            }, g2).setLineColor("#0000ff");  
     g2.connectable({
                 container: linkssh1,
                 markers: markerssh1
-            }, g3).setLineColor("#5D4037");   
+            }, g3).setLineColor("#0000ff");   
     g3.connectable({
                 container: linkssh1,
                 markers: markerssh1
-            }, g4).setLineColor("#5D4037");   
+            }, g4).setLineColor("#0000ff");   
     g4.connectable({
                 container: linkssh1,
                 markers: markerssh1
-            }, g1).setLineColor("#5D4037");        
+            }, g1).setLineColor("#0000ff");        
 
 }
 
@@ -105,16 +105,16 @@ function drowShape2(nodesh2,linkssh2,markerssh2){
     g1.connectable({
                 container: linkssh2,
                 markers: markerssh2
-            }, g2).setLineColor("#5D4037");  
+            }, g2).setLineColor("#0000ff");  
     g2.connectable({
                 container: linkssh2,
                 markers: markerssh2
-            }, g3).setLineColor("#5D4037");   
+            }, g3).setLineColor("#0000ff");   
  
     g3.connectable({
                 container: linkssh2,
                 markers: markerssh2
-            }, g1).setLineColor("#5D4037");        
+            }, g1).setLineColor("#0000ff");        
 
 }
 
@@ -148,19 +148,19 @@ function drowShape3(nodesh3,linkssh3,markerssh3){
         g1.connectable({
                         container: linkssh3,
                         markers: markerssh3
-                }, g2).setLineColor("#5D4037");  
+                }, g2).setLineColor("#0000ff");  
         g2.connectable({
                         container: linkssh3,
                         markers: markerssh3
-                }, g3).setLineColor("#5D4037");   
+                }, g3).setLineColor("#0000ff");   
         g3.connectable({
                         container: linkssh3,
                         markers: markerssh3
-                }, g4).setLineColor("#5D4037");   
+                }, g4).setLineColor("#0000ff");   
         g4.connectable({
                         container: linkssh3,
                         markers: markerssh3
-                }, g1).setLineColor("#5D4037");        
+                }, g1).setLineColor("#0000ff");        
 
 }
 
@@ -206,41 +206,41 @@ function drowShape4(nodesh4,linkssh4,markerssh4){
         g1.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g2).setLineColor("#5D4037"); 
+            }, g2).setLineColor("#0000ff"); 
 
         g2.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g3).setLineColor("#5D4037");   
+            }, g3).setLineColor("#0000ff");   
  
         g3.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g4).setLineColor("#5D4037");  
+            }, g4).setLineColor("#0000ff");  
 
         g4.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g5).setLineColor("#5D4037");    
+            }, g5).setLineColor("#0000ff");    
 
         g5.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g6).setLineColor("#5D4037");  
+            }, g6).setLineColor("#0000ff");  
 
         g6.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g7).setLineColor("#5D4037");   
+            }, g7).setLineColor("#0000ff");   
 
         g7.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g8).setLineColor("#5D4037");  
+            }, g8).setLineColor("#0000ff");  
 
         g8.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g1).setLineColor("#5D4037");    
+            }, g1).setLineColor("#0000ff");    
 
 }
