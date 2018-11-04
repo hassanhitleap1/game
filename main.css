@@ -1,4 +1,6 @@
-
+body{
+  overflow: hidden;
+}
   .graph{
     border: 1px solid black;
     width: 100%;

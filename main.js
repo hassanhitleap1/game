@@ -3,11 +3,11 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-        // this.isSquare();
-        this.isRectangle();
+
+        //this.isRectangle();
         //this.isTriangle();
-       // this.moin();
-       //this.isHexa();
+        // this.moin();
+        //this.isHexa();
     }
 
 
@@ -29,11 +29,10 @@ class Shape {
                      return true; 
                  }
              }
-             alert("flase");
+            
              return false;
         }
         
-        alert("flase");
         return false;
     }
 

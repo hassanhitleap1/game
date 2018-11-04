@@ -1,7 +1,7 @@
-var svg = new SVG(document.querySelector(".graph")).size("100%", 500);
-var svg2 = new SVG(document.querySelector("#drawing2")).size("100%", 500);
-var svg3 = new SVG(document.querySelector("#drawing3")).size("100%", 500);
-var svg4 = new SVG(document.querySelector("#drawing4")).size("100%", 500);
+var svg = new SVG(document.querySelector(".graph")).size("100%", 400);
+var svg2 = new SVG(document.querySelector("#drawing2")).size("100%", 400);
+var svg3 = new SVG(document.querySelector("#drawing3")).size("100%", 400);
+var svg4 = new SVG(document.querySelector("#drawing4")).size("100%", 400);
 
 var nodes = svg.group();
 var nodes2 = svg2.group();
@@ -55,7 +55,7 @@ function drowNods() {
 
  for (let i = 0; i < 8; i++) {
     
-     for (let i2 = 0; i2 < 10; i2++) {
+     for (let i2 = 0; i2 < 8; i2++) {
          var g = nodes.group().translate(x, y);
          g.circle(20).fill("#ff0000");
          $("#"+g).attr( "x", i);
@@ -73,7 +73,7 @@ function drowNods2() {
 
  for (let i = 0; i < 8; i++) {
     
-     for (let i2 = 0; i2 < 10; i2++) {
+     for (let i2 = 0; i2 < 8; i2++) {
          var g = nodes2.group().translate(x, y);
          g.circle(20).fill("#ff0000");
          $("#"+g).attr( "x", i);
@@ -90,7 +90,7 @@ function drowNods3() {
 
  for (let i = 0; i < 8; i++) {
     
-     for (let i2 = 0; i2 < 10; i2++) {
+     for (let i2 = 0; i2 < 8; i2++) {
          var g = nodes3.group().translate(x, y);
          g.circle(20).fill("#ff0000");
          $("#"+g).attr( "x", i);
@@ -107,7 +107,7 @@ function drowNods4() {
 
  for (let i = 0; i < 8; i++) {
      
-     for (let i2 = 0; i2 < 10; i2++) {
+     for (let i2 = 0; i2 < 8; i2++) {
          var g = nodes4.group().translate(x, y);
          g.circle(20).fill("#ff0000");
          $("#"+g).attr( "x", i);
@@ -466,6 +466,8 @@ $( "#drawing3" ).mouseup(function() {
         }
         index3++; 
 });
+
+
 $( "#drawing4" ).mouseup(function() {
     //console.log('mouseup drawing');
         if (shape4 === 'mouse paint') {
@@ -481,3 +483,63 @@ $( "#drawing4" ).mouseup(function() {
         }
         index4++; 
 });
+
+
+
+function calculate(){
+    let countTrue=0;
+    // try{
+    //     squre=new Shape(pointsArray);
+    //     if(squre.isSquare()){
+    //         countTrue++;
+    //         alert("good ");
+    //     }else{
+    //         console.log('its is ot  squre ');
+    //     }
+    // }catch(error){
+    //     alert("must be drow squre ");
+    // }
+   
+    // try{
+    //     triangle= new Shape(pointsArray2);
+    //     if(triangle.isTriangle()){
+    //         countTrue++;
+    //         alert("good it is Triangle");
+    //     }else{
+    //         console.log('its is ot  Triangle ');
+    //     }
+    // }catch(error){
+    //     alert("must be drow Triangle ");
+    // }
+
+    try{
+        rectangle= new Shape(pointsArray3);
+        if(rectangle.isRectangle()){
+            countTrue++;
+            alert("good it is rectangle");
+        }else{
+            alert("its is not  rectangle ");
+        }
+    }catch(error){
+        alert("must be drow rectangle ");
+    }
+
+    // try{
+    //     hexa= new Shape(pointsArray3);
+    //     if(hexa.isHexa()){
+    //         countTrue++;
+    //         alert("good it is hexa");
+    //     }else{
+    //         console.log('its is ot  hexa ');
+    //     }
+    // }catch(error){
+    //     alert("must be drow hexa ");
+    // }
+    
+    // if(countTrue >=4){
+    //     alert("all off ture ");
+    // }else{
+
+    // }
+}
+
