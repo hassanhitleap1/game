@@ -26,6 +26,11 @@ window.addEventListener("load", function () {
     drowShape3(nodesh3,linkssh3,markerssh3);
     drowShape3(nodesh4,linkssh4,markerssh4);
 
+       
+
+});
+
+function drowShape1(nodesh1,linkssh1,markerssh1){
         x=0;
         y=0;
         var g ;
@@ -38,22 +43,17 @@ window.addEventListener("load", function () {
             x+=60;
             y=0;
         }
-       
+    var g1 = nodesh1.group().translate(60, 50).draggy();
+            g1.circle(20).fill("#C2185B");
 
-});
+    var g2 = nodesh1.group().translate(300, 50).draggy();
+            g2.circle(20).fill("#E91E63");
 
-function drowShape1(nodesh1,linkssh1,markerssh1){
-    var g1 = nodesh1.group().translate(0, 50).draggy();
-            g1.circle(50).fill("#C2185B");
+    var g4 = nodesh1.group().translate(60, 250).draggy();
+            g4.circle(20).fill("#FF5252");  
 
-    var g2 = nodesh1.group().translate(240, 50).draggy();
-            g2.circle(50).fill("#E91E63");
-
-    var g4 = nodesh1.group().translate(40, 240).draggy();
-            g4.circle(50).fill("#FF5252");  
-
-    var g3 = nodesh1.group().translate(240, 240).draggy();
-            g3.circle(50).fill("#FF5252");
+    var g3 = nodesh1.group().translate(300, 250).draggy();
+            g3.circle(20).fill("#FF5252");
   
  
             
@@ -77,6 +77,20 @@ function drowShape1(nodesh1,linkssh1,markerssh1){
 }
 
 function drowShape2(nodesh2,linkssh2,markerssh2){
+
+        x=0;
+        y=0;
+        var g ;
+        for (let i = 0; i < 8; i++) {
+            for (let i2 = 0; i2 < 10; i2++) {
+                 g = nodesh2.group().translate(x, y).draggy();
+                g.circle(20).fill("#ff0000");
+                y+=50;
+            }
+            x+=60;
+            y=0;
+        }
+
     var g1 = nodesh2.group().translate(120, 50).draggy();
             g1.circle(50).fill("#C2185B");
 
@@ -109,6 +123,18 @@ function drowShape2(nodesh2,linkssh2,markerssh2){
 }
 
 function drowShape3(nodesh3,linkssh3,markerssh3){
+        x=0;
+        y=0;
+        var g ;
+        for (let i = 0; i < 8; i++) {
+            for (let i2 = 0; i2 < 10; i2++) {
+                 g = nodesh3.group().translate(x, y).draggy();
+                g.circle(20).fill("#ff0000");
+                y+=50;
+            }
+            x+=60;
+            y=0;
+        }
     var g1 = nodesh3.group().translate(120, 50).draggy();
             g1.circle(50).fill("#C2185B");
 
@@ -142,6 +168,18 @@ function drowShape3(nodesh3,linkssh3,markerssh3){
 
 
 function drowShape4(nodesh4,linkssh4,markerssh4){
+        x=0;
+        y=0;
+        var g ;
+        for (let i = 0; i < 8; i++) {
+            for (let i2 = 0; i2 < 10; i2++) {
+                 g = nodesh4.group().translate(x, y).draggy();
+                g.circle(20).fill("#ff0000");
+                y+=50;
+            }
+            x+=60;
+            y=0;
+        }
     var g1 = nodesh4.group().translate(120, 50).draggy();
             g1.circle(50).fill("#C2185B");
 
