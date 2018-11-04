@@ -24,7 +24,7 @@ window.addEventListener("load", function () {
     drowShape1(nodesh1,linkssh1,markerssh1);
     drowShape2(nodesh2,linkssh2,markerssh2);
     drowShape3(nodesh3,linkssh3,markerssh3);
-    drowShape3(nodesh4,linkssh4,markerssh4);
+    drowShape4(nodesh4,linkssh4,markerssh4);
 
        
 
@@ -36,7 +36,7 @@ function drowShape1(nodesh1,linkssh1,markerssh1){
         var g ;
         for (let i = 0; i < 8; i++) {
             for (let i2 = 0; i2 < 10; i2++) {
-                 g = nodesh1.group().translate(x, y).draggy();
+                 g = nodesh1.group().translate(x, y);
                 g.circle(20).fill("#ff0000");
                 y+=50;
             }
@@ -44,16 +44,16 @@ function drowShape1(nodesh1,linkssh1,markerssh1){
             y=0;
         }
     var g1 = nodesh1.group().translate(60, 50).draggy();
-            g1.circle(20).fill("#C2185B");
+            g1.circle(20).fill("#ffa500");
 
     var g2 = nodesh1.group().translate(300, 50).draggy();
-            g2.circle(20).fill("#E91E63");
+            g2.circle(20).fill("#00651b");
 
     var g4 = nodesh1.group().translate(60, 250).draggy();
-            g4.circle(20).fill("#FF5252");  
+            g4.circle(20).fill("#00651b");  
 
     var g3 = nodesh1.group().translate(300, 250).draggy();
-            g3.circle(20).fill("#FF5252");
+            g3.circle(20).fill("#00651b");
   
  
             
@@ -83,7 +83,7 @@ function drowShape2(nodesh2,linkssh2,markerssh2){
         var g ;
         for (let i = 0; i < 8; i++) {
             for (let i2 = 0; i2 < 10; i2++) {
-                 g = nodesh2.group().translate(x, y).draggy();
+                 g = nodesh2.group().translate(x, y);
                 g.circle(20).fill("#ff0000");
                 y+=50;
             }
@@ -91,17 +91,16 @@ function drowShape2(nodesh2,linkssh2,markerssh2){
             y=0;
         }
 
-    var g1 = nodesh2.group().translate(120, 50).draggy();
-            g1.circle(50).fill("#C2185B");
+    var g1 = nodesh2.group().translate(240, 50).draggy();
+            g1.circle(20).fill("#ffa500");
 
-    var g2 = nodesh2.group().translate(300, 100).draggy();
-            g2.circle(50).fill("#E91E63");
+    var g2 = nodesh2.group().translate(120, 200).draggy();
+            g2.circle(20).fill("#00651b");
 
-    var g3 = nodesh2.group().translate(120, 50).draggy();
-            g3.circle(50).fill("#FF5252");
+    var g3 = nodesh2.group().translate(360, 200).draggy();
+            g3.circle(20).fill("#00651b");
   
-    var g4 = nodesh2.group().translate(300, 250).draggy();
-            g4.circle(50).fill("#FF5252");    
+  
             
     g1.connectable({
                 container: linkssh2,
@@ -111,11 +110,8 @@ function drowShape2(nodesh2,linkssh2,markerssh2){
                 container: linkssh2,
                 markers: markerssh2
             }, g3).setLineColor("#5D4037");   
+ 
     g3.connectable({
-                container: linkssh2,
-                markers: markerssh2
-            }, g4).setLineColor("#5D4037");   
-    g4.connectable({
                 container: linkssh2,
                 markers: markerssh2
             }, g1).setLineColor("#5D4037");        
@@ -128,41 +124,43 @@ function drowShape3(nodesh3,linkssh3,markerssh3){
         var g ;
         for (let i = 0; i < 8; i++) {
             for (let i2 = 0; i2 < 10; i2++) {
-                 g = nodesh3.group().translate(x, y).draggy();
+                 g = nodesh3.group().translate(x, y);
                 g.circle(20).fill("#ff0000");
                 y+=50;
             }
             x+=60;
             y=0;
         }
-    var g1 = nodesh3.group().translate(120, 50).draggy();
-            g1.circle(50).fill("#C2185B");
+        var g1 = nodesh3.group().translate(60, 100).draggy();
+            g1.circle(20).fill("#ffa500");
 
-    var g2 = nodesh3.group().translate(300, 100).draggy();
-            g2.circle(50).fill("#E91E63");
+        var g2 = nodesh3.group().translate(360, 100).draggy();
+            g2.circle(20).fill("#00651b");
 
-    var g3 = nodesh3.group().translate(120, 50).draggy();
-            g3.circle(50).fill("#FF5252");
+        var g4 = nodesh3.group().translate(60, 200).draggy();
+            g4.circle(20).fill("#00651b");   
+
+         var g3 = nodesh3.group().translate(360, 200).draggy();
+            g3.circle(20).fill("#00651b");
   
-    var g4 = nodesh3.group().translate(300, 250).draggy();
-            g4.circle(50).fill("#FF5252");    
+ 
             
-    g1.connectable({
-                container: linkssh3,
-                markers: markerssh3
-            }, g2).setLineColor("#5D4037");  
-    g2.connectable({
-                container: linkssh3,
-                markers: markerssh3
-            }, g3).setLineColor("#5D4037");   
-    g3.connectable({
-                container: linkssh3,
-                markers: markerssh3
-            }, g4).setLineColor("#5D4037");   
-    g4.connectable({
-                container: linkssh3,
-                markers: markerssh3
-            }, g1).setLineColor("#5D4037");        
+        g1.connectable({
+                        container: linkssh3,
+                        markers: markerssh3
+                }, g2).setLineColor("#5D4037");  
+        g2.connectable({
+                        container: linkssh3,
+                        markers: markerssh3
+                }, g3).setLineColor("#5D4037");   
+        g3.connectable({
+                        container: linkssh3,
+                        markers: markerssh3
+                }, g4).setLineColor("#5D4037");   
+        g4.connectable({
+                        container: linkssh3,
+                        markers: markerssh3
+                }, g1).setLineColor("#5D4037");        
 
 }
 
@@ -173,40 +171,76 @@ function drowShape4(nodesh4,linkssh4,markerssh4){
         var g ;
         for (let i = 0; i < 8; i++) {
             for (let i2 = 0; i2 < 10; i2++) {
-                 g = nodesh4.group().translate(x, y).draggy();
+                 g = nodesh4.group().translate(x, y);
                 g.circle(20).fill("#ff0000");
                 y+=50;
             }
             x+=60;
             y=0;
         }
-    var g1 = nodesh4.group().translate(120, 50).draggy();
-            g1.circle(50).fill("#C2185B");
+        var g1 = nodesh4.group().translate(240, 50).draggy();
+            g1.circle(20).fill("#ffa500");
 
-    var g2 = nodesh4.group().translate(300, 100).draggy();
-            g2.circle(50).fill("#E91E63");
+        var g2 = nodesh4.group().translate(180, 50).draggy();
+            g2.circle(20).fill("#00651b");
 
-    var g3 = nodesh4.group().translate(120, 50).draggy();
-            g3.circle(50).fill("#FF5252");
-  
-    var g4 = nodesh4.group().translate(300, 250).draggy();
-            g4.circle(50).fill("#FF5252");    
+        var g3 = nodesh4.group().translate(60, 150).draggy();
+            g3.circle(20).fill("#00651b");
+
+        var g4 = nodesh4.group().translate(60, 200).draggy();
+                g4.circle(20).fill("#00651b");
+
+        var g5 = nodesh4.group().translate(180, 300).draggy();
+            g5.circle(20).fill("#00651b");
+
+        var g6 = nodesh4.group().translate(240, 300).draggy();
+            g6.circle(20).fill("#00651b");
+
+        var g7 = nodesh4.group().translate(360, 200).draggy();
+            g7.circle(20).fill("#00651b");
+
+        var g8 = nodesh4.group().translate(360, 150).draggy();
+            g8.circle(20).fill("#00651b");
+
             
-    g1.connectable({
+        g1.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g2).setLineColor("#5D4037");  
-    g2.connectable({
+            }, g2).setLineColor("#5D4037"); 
+
+        g2.connectable({
                 container: linkssh4,
                 markers: markerssh4
             }, g3).setLineColor("#5D4037");   
-    g3.connectable({
+ 
+        g3.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g4).setLineColor("#5D4037");   
-    g4.connectable({
+            }, g4).setLineColor("#5D4037");  
+
+        g4.connectable({
                 container: linkssh4,
                 markers: markerssh4
-            }, g1).setLineColor("#5D4037");        
+            }, g5).setLineColor("#5D4037");    
+
+        g5.connectable({
+                container: linkssh4,
+                markers: markerssh4
+            }, g6).setLineColor("#5D4037");  
+
+        g6.connectable({
+                container: linkssh4,
+                markers: markerssh4
+            }, g7).setLineColor("#5D4037");   
+
+        g7.connectable({
+                container: linkssh4,
+                markers: markerssh4
+            }, g8).setLineColor("#5D4037");  
+
+        g8.connectable({
+                container: linkssh4,
+                markers: markerssh4
+            }, g1).setLineColor("#5D4037");    
 
 }
