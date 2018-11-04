@@ -29,8 +29,11 @@ class Shape {
                      return true; 
                  }
              }
+             alert("flase");
              return false;
         }
+        
+        alert("flase");
         return false;
     }
 
