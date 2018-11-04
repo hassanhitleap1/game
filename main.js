@@ -4,24 +4,12 @@ class Shape {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
         // this.isSquare();
-        //this.isRectangle();
+        this.isRectangle();
         //this.isTriangle();
        // this.moin();
-       this.isHexa();
+       //this.isHexa();
     }
 
-    // Adding a method to the constructor
-    isCircle() {
-       
-        this.points.forEach(function(arr) {
-            console.log(arr);
-        });
-       if(true){
-        console.log("isCircle");
-       }else{
-        console.log("not isCircle");
-       }
-    }
 
     isRectangle(){
         if(this.finalNodeEqFirstNode() && this.isEvenNode(this.nodesPoint)){
@@ -29,7 +17,7 @@ class Shape {
                    // console.log('isGolineColumn');
                  var stratFromNode=this.sumNodeINColumn();
                  if(stratFromNode !=this.sumNodeINRowColumn(stratFromNode)){
-                     console.log("its isRectangle");
+                     alert("its isRectangle");
                      return true; 
                  }
              }
@@ -37,7 +25,7 @@ class Shape {
                   //  console.log('isGoLineRow');
                  var stratFromNode=this.sumNodeINRow();
                  if(stratFromNode!=this.sumNodeINColumnRow(stratFromNode)){
-                     console.log("its isRectangle");
+                    alert("its isRectangle");
                      return true; 
                  }
              }
