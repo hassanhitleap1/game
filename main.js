@@ -62,35 +62,6 @@ class Shape {
         if(!this.isSquare()&& !this.isRectangle()&& this.isEvenNode(this.nodesPoint)&& this.cornerCouuntTriangle()&& this.finalNodeEqFirstNode() ){
            console.log("it is isTriangle");
         }
-
-        // if(this.isGolineColumn()){
-        //     console.log('isGolineColumn corner in right ');
-        //   var corner=this.cornerColumn();
-        //  // console.log(corner);
-       
-        // }
-        // if(this.isGoLineRow()){
-        //     console.log('isGoLineRow corner in left');
-        //     var corner=this.cornerRow();
-        //    // console.log(corner);
-        // }else{
-        // }
-        // this.corner();
-        // var firstNodeRow=this.points[1][0];
-        // var firstNodeColumn=this.points[1][1];
-        // var secoundNodeRow=this.points[2][0];
-        // var secoundNodeColumn=this.points[2][1];
-        // console.log(this.points);
-        // console.log('firstNodeRow= '+firstNodeRow+" firstNodeColumn="+firstNodeColumn
-        // +" secoundNodeRow="+secoundNodeRow+" secoundNodeColumn="+secoundNodeColumn);
-
-        // if(firstNodeRow==secoundNodeRow){
-        //     console.log("line mostaqem");
-        // }
-        // if(firstNodeColumn==secoundNodeColumn){
-        //     console.log("line mostaqem"); 
-        // }
-      
       
     }
 
