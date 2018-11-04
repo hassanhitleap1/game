@@ -5,8 +5,9 @@ class Shape {
         this.nodesPoint=pointsArray.length;
         // this.isSquare();
         //this.isRectangle();
-        this.isTriangle();
+        //this.isTriangle();
        // this.moin();
+       this.isHexa();
     }
 
     // Adding a method to the constructor
@@ -51,26 +52,16 @@ class Shape {
         }
     }
 
-
+    isHexa(){
+        if( !this.isRectangle()&& this.isEvenNode(this.nodesPoint)&& this.cornerCouuntHexa()&& this.finalNodeEqFirstNode() ){
+            console.log("it is Hexa");
+         }  
+    }
 
     isTriangle(){
-        // if(!this.isSquare()){
-
-        // }
-        // if(!this.isRectangle()){
-            
-        // }
-        // if(! this.isEvenNode(this.nodesPoint)){
-        //     console.log('not even ')
-        // }
-        if(this.cornerCouuntTriangle()){
-            console.log("ssssss");
-            
+        if(!this.isSquare()&& !this.isRectangle()&& this.isEvenNode(this.nodesPoint)&& this.cornerCouuntTriangle()&& this.finalNodeEqFirstNode() ){
+           console.log("it is isTriangle");
         }
-
-        // if(this.finalNodeEqFirstNode() ){
-        //   //  console.log('finalNodeEqFirstNode');
-        // }
 
         // if(this.isGolineColumn()){
         //     console.log('isGolineColumn corner in right ');
@@ -82,13 +73,9 @@ class Shape {
         //     console.log('isGoLineRow corner in left');
         //     var corner=this.cornerRow();
         //    // console.log(corner);
-        
         // }else{
-
         // }
-
-
-        this.corner();
+        // this.corner();
         // var firstNodeRow=this.points[1][0];
         // var firstNodeColumn=this.points[1][1];
         // var secoundNodeRow=this.points[2][0];
@@ -115,7 +102,7 @@ class Shape {
                // console.log('isGolineColumn');
                 var stratFromNode=this.sumNodeINColumn();
                 if(stratFromNode==this.sumNodeINRowColumn(stratFromNode)){
-                    console.log("its squre");
+                    //console.log("its squre");
                     return true; 
                 }
             }
@@ -123,7 +110,7 @@ class Shape {
                // console.log('isGoLineRow');
                 var stratFromNode=this.sumNodeINRow();
                 if(stratFromNode==this.sumNodeINColumnRow(stratFromNode)){
-                    console.log("its squre");
+                    //console.log("its squre");
                     return true; 
                 }
             }
@@ -374,53 +361,16 @@ class Shape {
     }
     cornerCouuntTriangle() {
         let cornerCount = 0;//let  cornerCount must be 2 
-        let one;
-        let two;
-        let three;
-        let four;
+
 
         for (let index = 1; index < this.points.length; index++) {
-            one = 0; two = 0; three = 0; four = 0;
-            one = this.points[index - 1][0] - this.points[index][0];
-            two = this.points[index][1] - this.points[index - 1][1];
-            three = this.points[index + 1][0] - this.points[index][0];
-            four = this.points[index + 1][1] - this.points[index][1];
 
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
+            if (this.points[index-1][1] == this.points[index][1] && this.points[index-1][0] != this.points[index][0]) {
                 cornerCount += 1;
-                one = 0; two = 0; three = 0; four = 0;
             }
-
-            one = this.points[index][0] - this.points[index - 1][0];
-            two = this.points[index][1] - this.points[index - 1][1];
-            three = this.points[index + 1][0] - this.points[index][0];
-            four = this.points[index][1] - this.points[index + 1][1];
-
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
+            if (this.points[index+1][1] == this.points[index][1]&& this.points[index+1][0] != this.points[index][0]) {
                 cornerCount += 1;
-                one = 0; two = 0; three = 0; four = 0;
             }
-
-            one = this.points[index][0] - this.points[index - 1][0];
-            two = this.points[index - 1][1] - this.points[index][1];
-            three = this.points[index][0] - this.points[index + 1][0];
-            four = this.points[index][1] - this.points[index + 1][1];
-
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount += 1;
-                one = 0; two = 0; three = 0; four = 0;
-            }
-
-            one = this.points[index][0] - this.points[index - 1][0];
-            two = this.points[index - 1][1] - this.points[index][1];
-            three = this.points[index][0] - this.points[index + 1][0];
-            four = (this.points[index][1]) - this.points[index + 1][1];
-
-            if ((one == 1) && (two == 1) && (three == 1) && (four == 1)) {
-                cornerCount += 1;
-                one = 0; two = 0; three = 0; four = 0;
-            }
-            console.log(cornerCount);
             
             if (cornerCount > 3) {
                 return true;
@@ -429,6 +379,69 @@ class Shape {
         }
         return flase;
     }
+
+    
+    cornerCouuntHexa(){
+        let corner=0;
+        var con1=0;
+        var con2=0;
+        var con3=0;
+        var con4=0;
+        for (let index = 1; index < this.points.length; index++) {
+            con1=0; con2=0; con3=0; con4=0;
+        //     // node one
+           con1= this.points[index-1][0]-this.points[index][0];
+           con2= this.points[index][1]-this.points[index-1][1];
+            if(this.points[index][0]==this.points[index+1][0]){
+                con3=1;
+            }
+            con4= this.points[index+1][1]-this.points[index][1];
+            if((con1==1)&&(con2==1)&& (con3==1)&&(con4==1)){
+                corner++; 
+            }
+
+            // // node two 
+            con1= this.points[index][0]-this.points[index-1][0];
+            con2= this.points[index][1]-this.points[index-1][1];
+            con3=this.points[index+1][0]-this.points[index][0];
+             if(this.points[index][1]==this.points[index+1][1]){
+                con4=1;
+             }
+             if((con1==1)&&(con2==1)&& (con3==1)&&(con4==1)){
+                 corner++; 
+             }
+
+             //node three
+             con1= this.points[index][0]-this.points[index-1][0];
+             con2= this.points[index-1][1]-this.points[index][1];
+             if(this.points[index][0]==this.points[index+1][0]){
+                con3=1;
+             }
+             con4=this.points[index][1]-this.points[index+1][1];
+
+              if((con1==1)&&(con2==1)&& (con3==1)&&(con4==1)){
+                  corner++; 
+              }
+            
+            // // node four
+            con1= this.points[index-1][0]-this.points[index][0];
+            con2= this.points[index-1][1]-this.points[index][1];
+
+            con3=this.points[index][0]-this.points[index+1][0];
+             if(this.points[index][1]==this.points[index+1][1]){
+                con4=1;
+             }
+             if((con1==1)&&(con2==1)&& (con3==1)&&(con4==1)){
+                 corner++; 
+             }
+            if(corner  >=3){
+                return true;
+            }
+        }
+
+       return false;
+    }
+
     isEvenNode(number){
         if (number % 2 == 0){
             //console.log("isEvenNode true");
