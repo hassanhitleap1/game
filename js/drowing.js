@@ -54,7 +54,7 @@ function drowNods() {
  y=0;
 
  for (let i = 0; i < 8; i++) {
-     x+=60;
+    
      for (let i2 = 0; i2 < 10; i2++) {
          var g = nodes.group().translate(x, y);
          g.circle(20).fill("#ff0000");
@@ -63,6 +63,7 @@ function drowNods() {
          y+=50;
      }
      y=0;
+     x+=60;
  }
 }
 
@@ -71,7 +72,7 @@ function drowNods2() {
  y=0;
 
  for (let i = 0; i < 8; i++) {
-     x+=60;
+    
      for (let i2 = 0; i2 < 10; i2++) {
          var g = nodes2.group().translate(x, y);
          g.circle(20).fill("#ff0000");
@@ -80,6 +81,7 @@ function drowNods2() {
          y+=50;
      }
      y=0;
+     x+=60;
  }
 }
 function drowNods3() {
@@ -87,7 +89,7 @@ function drowNods3() {
  y=0;
 
  for (let i = 0; i < 8; i++) {
-     x+=60;
+    
      for (let i2 = 0; i2 < 10; i2++) {
          var g = nodes3.group().translate(x, y);
          g.circle(20).fill("#ff0000");
@@ -96,6 +98,7 @@ function drowNods3() {
          y+=50;
      }
      y=0;
+     x+=60;
  }
 }
 function drowNods4() {
@@ -103,7 +106,7 @@ function drowNods4() {
  y=0;
 
  for (let i = 0; i < 8; i++) {
-     x+=60;
+     
      for (let i2 = 0; i2 < 10; i2++) {
          var g = nodes4.group().translate(x, y);
          g.circle(20).fill("#ff0000");
@@ -112,6 +115,7 @@ function drowNods4() {
          y+=50;
      }
      y=0;
+     x+=60;
  }
 } 
 
