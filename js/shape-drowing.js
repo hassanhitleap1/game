@@ -43,16 +43,16 @@ function drowShape1(nodesh1,linkssh1,markerssh1){
             x+=60;
             y=0;
         }
-    var g1 = nodesh1.group().translate(60, 50).draggy();
+    var g1 = nodesh1.group().translate(60, 50);
             g1.circle(20).fill("#ffa500");
 
-    var g2 = nodesh1.group().translate(300, 50).draggy();
+    var g2 = nodesh1.group().translate(300, 50);
             g2.circle(20).fill("#00651b");
 
-    var g4 = nodesh1.group().translate(60, 250).draggy();
+    var g4 = nodesh1.group().translate(60, 250);
             g4.circle(20).fill("#00651b");  
 
-    var g3 = nodesh1.group().translate(300, 250).draggy();
+    var g3 = nodesh1.group().translate(300, 250);
             g3.circle(20).fill("#00651b");
   
  
@@ -91,13 +91,13 @@ function drowShape2(nodesh2,linkssh2,markerssh2){
             y=0;
         }
 
-    var g1 = nodesh2.group().translate(240, 50).draggy();
+    var g1 = nodesh2.group().translate(240, 50);
             g1.circle(20).fill("#ffa500");
 
-    var g2 = nodesh2.group().translate(120, 200).draggy();
+    var g2 = nodesh2.group().translate(120, 200);
             g2.circle(20).fill("#00651b");
 
-    var g3 = nodesh2.group().translate(360, 200).draggy();
+    var g3 = nodesh2.group().translate(360, 200);
             g3.circle(20).fill("#00651b");
   
   
@@ -131,16 +131,16 @@ function drowShape3(nodesh3,linkssh3,markerssh3){
             x+=60;
             y=0;
         }
-        var g1 = nodesh3.group().translate(60, 100).draggy();
+        var g1 = nodesh3.group().translate(60, 100);
             g1.circle(20).fill("#ffa500");
 
-        var g2 = nodesh3.group().translate(360, 100).draggy();
+        var g2 = nodesh3.group().translate(360, 100);
             g2.circle(20).fill("#00651b");
 
-        var g4 = nodesh3.group().translate(60, 200).draggy();
+        var g4 = nodesh3.group().translate(60, 200);
             g4.circle(20).fill("#00651b");   
 
-         var g3 = nodesh3.group().translate(360, 200).draggy();
+         var g3 = nodesh3.group().translate(360, 200);
             g3.circle(20).fill("#00651b");
   
  
@@ -178,28 +178,28 @@ function drowShape4(nodesh4,linkssh4,markerssh4){
             x+=60;
             y=0;
         }
-        var g1 = nodesh4.group().translate(240, 50).draggy();
+        var g1 = nodesh4.group().translate(240, 50);
             g1.circle(20).fill("#ffa500");
 
-        var g2 = nodesh4.group().translate(180, 50).draggy();
+        var g2 = nodesh4.group().translate(180, 50);
             g2.circle(20).fill("#00651b");
 
-        var g3 = nodesh4.group().translate(60, 150).draggy();
+        var g3 = nodesh4.group().translate(60, 150);
             g3.circle(20).fill("#00651b");
 
-        var g4 = nodesh4.group().translate(60, 200).draggy();
+        var g4 = nodesh4.group().translate(60, 200);
                 g4.circle(20).fill("#00651b");
 
-        var g5 = nodesh4.group().translate(180, 300).draggy();
+        var g5 = nodesh4.group().translate(180, 300);
             g5.circle(20).fill("#00651b");
 
-        var g6 = nodesh4.group().translate(240, 300).draggy();
+        var g6 = nodesh4.group().translate(240, 300);
             g6.circle(20).fill("#00651b");
 
-        var g7 = nodesh4.group().translate(360, 200).draggy();
+        var g7 = nodesh4.group().translate(360, 200);
             g7.circle(20).fill("#00651b");
 
-        var g8 = nodesh4.group().translate(360, 150).draggy();
+        var g8 = nodesh4.group().translate(360, 150);
             g8.circle(20).fill("#00651b");
 
             
