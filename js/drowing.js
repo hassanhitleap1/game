@@ -322,21 +322,21 @@ $( "#drawing3 >> g[x]" ).mousemove(function(event) {
 
 $( "#drawing4 >> g[x]" ).mousemove(function(event) {
    
-//    var id=$(this).attr('id');
-//    if (shape4 === 'mouse paint' && shapes4[index4]) {
-//       // console.log('mousemove circle');
-//        shapes4[index4].draw('point', event);
+   var id=$(this).attr('id');
+   if (shape4 === 'mouse paint' && shapes4[index4]) {
+      // console.log('mousemove circle');
+       shapes4[index4].draw('point', event);
        
-//        xDireaction=$(this ).attr('x');
-//        yDireaction=$( this ).attr('y');
+       xDireaction=$(this ).attr('x');
+       yDireaction=$( this ).attr('y');
 
-//      if(idG4 != id)
-//      {
-//        pointsArray4.push([xDireaction,yDireaction]);
-//        idG4=id;
-//      }
+     if(idG4 != id)
+     {
+       pointsArray4.push([xDireaction,yDireaction]);
+       idG4=id;
+     }
     
-//    }
+   }
 });
 
 $( "#drawing >> g[x]" ).mouseup(function() {
@@ -432,8 +432,7 @@ $( "#drawing4 >> g[x]" ).mouseup(function() {
                 
             }
             
-        } 
-        else {
+        } else {
             try {
             shapes4[index4].draw(event);
             shapeObject4=new  Shape();
