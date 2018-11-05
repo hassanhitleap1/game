@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
-    var svgsh1 = new SVG(document.querySelector("#graph1")).size("100%", 400);
-    var svgsh2 = new SVG(document.querySelector("#graph2")).size("100%", 400);
-    var svgsh3 = new SVG(document.querySelector("#graph3")).size("100%", 400);
+    var svgsh1 = new SVG(document.querySelector("#graph1")).size("100%", 100);
+    var svgsh2 = new SVG(document.querySelector("#graph2")).size("100%", 100);
+    var svgsh3 = new SVG(document.querySelector("#graph3")).size("100%", 100);
     var svgsh4 = new SVG(document.querySelector("#graph4")).size("100%", 400);
 
     var linkssh1 = svgsh1.group();

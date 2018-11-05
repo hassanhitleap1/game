@@ -33,10 +33,10 @@ let shape2;
 let shape3;
 let shape4;
 
-let pointsArray;
-let pointsArray2;
-let pointsArray3;
-let pointsArray4;
+let pointsArray=Array();
+let pointsArray2=Array();
+let pointsArray3=Array();
+let pointsArray4=Array();
 
 let idG;
 let idG2;
@@ -205,10 +205,16 @@ $("#drawing >> g[x]" ).mousedown(function() {
 const shape = getDrawObject();
   shapes[index] = shape;
   shape.draw(event);
-     xDireaction=$(this).attr('x');
-    yDireaction=$(this).attr('y');
-     pointsArray=[[xDireaction,yDireaction]];
-     idG=$( "g[x]" ).attr('id');
+  xDireaction=$(this).attr('x');
+  yDireaction=$(this).attr('y');
+  if(!pointsArray.length){
+    pointsArray=[[xDireaction,yDireaction]];
+  }else{
+    pointsArray.push([xDireaction,yDireaction]);
+  }
+    
+    //  pointsArray=[[xDireaction,yDireaction]];
+    //  idG=$( "g[x]" ).attr('id');
      
 });
 
@@ -219,8 +225,12 @@ const shape2 = getDrawObject2();
   shape2.draw(event);
      xDireaction=$(this).attr('x');
     yDireaction=$(this).attr('y');
-     pointsArray2=[[xDireaction,yDireaction]];
-     idG2=$( this ).attr('id');
+     if(!pointsArray2.length){
+        pointsArray2=[[xDireaction,yDireaction]];
+      }else{
+        pointsArray2.push([xDireaction,yDireaction]);
+      }
+    //  idG2=$( this ).attr('id');
 });
 
 $("#drawing3 >> g[x]" ).mousedown(function() {
@@ -230,8 +240,13 @@ const shape3 = getDrawObject3();
   shape3.draw(event);
      xDireaction=$(this).attr('x');
     yDireaction=$(this).attr('y');
-     pointsArray3=[[xDireaction,yDireaction]];
-     idG3=$( this ).attr('id');
+    //  pointsArray3=[[xDireaction,yDireaction]];
+     if(!pointsArray3.length){
+        pointsArray3=[[xDireaction,yDireaction]];
+      }else{
+        pointsArray3.push([xDireaction,yDireaction]);
+      }
+    //  idG3=$( this ).attr('id');
 });
 $("#drawing4 >> g[x]" ).mousedown(function() {
 // console.log('mousedown circle');
@@ -240,84 +255,88 @@ const shape4 = getDrawObject4();
   shape4.draw(event);
      xDireaction=$(this).attr('x');
     yDireaction=$(this).attr('y');
-     pointsArray4=[[xDireaction,yDireaction]];
-     idG4=$( this ).attr('id');
+     if(!pointsArray4.length){
+        pointsArray4=[[xDireaction,yDireaction]];
+      }else{
+        pointsArray4.push([xDireaction,yDireaction]);
+      }
+    //  idG4=$( this ).attr('id');
 });
 
 $( "#drawing >> g[x]" ).mousemove(function(event) {
    
-    var id=$(this).attr('id');
-    if (shape === 'mouse paint' && shapes[index]) {
-       // console.log('mousemove circle');
-        shapes[index].draw('point', event);
+    // var id=$(this).attr('id');
+    // if (shape === 'mouse paint' && shapes[index]) {
+    //    // console.log('mousemove circle');
+    //     shapes[index].draw('point', event);
         
-        xDireaction=$(this ).attr('x');
-        yDireaction=$( this ).attr('y');
+    //     xDireaction=$(this ).attr('x');
+    //     yDireaction=$( this ).attr('y');
 
-      if(idG != id)
-      {
-        pointsArray.push([xDireaction,yDireaction]);
-        idG=id;
-      }
+    //   if(idG != id)
+    //   {
+    //     pointsArray.push([xDireaction,yDireaction]);
+    //     idG=id;
+    //   }
      
-    }
+    // }
 });
 
 $( "#drawing2 >> g[x]" ).mousemove(function(event) {
    
-   var id=$(this).attr('id');
-   if (shape2 === 'mouse paint' && shapes2[index2]) {
-      // console.log('mousemove circle');
-       shapes2[index2].draw('point', event);
+//    var id=$(this).attr('id');
+//    if (shape2 === 'mouse paint' && shapes2[index2]) {
+//       // console.log('mousemove circle');
+//        shapes2[index2].draw('point', event);
        
-       xDireaction=$(this ).attr('x');
-       yDireaction=$( this ).attr('y');
+//        xDireaction=$(this ).attr('x');
+//        yDireaction=$( this ).attr('y');
 
-     if(idG2 != id)
-     {
-       pointsArray2.push([xDireaction,yDireaction]);
-       idG2=id;
-     }
+//      if(idG2 != id)
+//      {
+//        pointsArray2.push([xDireaction,yDireaction]);
+//        idG2=id;
+//      }
     
-   }
+//    }
 });
 
 $( "#drawing3 >> g[x]" ).mousemove(function(event) {
    
-   var id=$(this).attr('id');
-   if (shape3 === 'mouse paint' && shapes3[index3]) {
-      // console.log('mousemove circle');
-       shapes3[index3].draw('point', event);
+//    var id=$(this).attr('id');
+//    if (shape3 === 'mouse paint' && shapes3[index3]) {
+//       // console.log('mousemove circle');
+//        shapes3[index3].draw('point', event);
        
-       xDireaction=$(this ).attr('x');
-       yDireaction=$( this ).attr('y');
+//        xDireaction=$(this ).attr('x');
+//        yDireaction=$( this ).attr('y');
 
-     if(idG3 != id)
-     {
-       pointsArray3.push([xDireaction,yDireaction]);
-       idG3=id;
-     }
+//      if(idG3 != id)
+//      {
+//        pointsArray3.push([xDireaction,yDireaction]);
+//        idG3=id;
+//      }
     
-   }
+//    }
 });
 
 $( "#drawing4 >> g[x]" ).mousemove(function(event) {
    
-   var id=$(this).attr('id');
-   if (shape4 === 'mouse paint' && shapes4[index4]) {
-      // console.log('mousemove circle');
-       shapes4[index4].draw('point', event);
+//    var id=$(this).attr('id');
+//    if (shape4 === 'mouse paint' && shapes4[index4]) {
+//       // console.log('mousemove circle');
+//        shapes4[index4].draw('point', event);
        
-       xDireaction=$(this ).attr('x');
-       yDireaction=$( this ).attr('y');
+//        xDireaction=$(this ).attr('x');
+//        yDireaction=$( this ).attr('y');
 
-     if(idG4 != id)
-     {
-       pointsArray4.push([xDireaction,yDireaction]);
-       idG4=id;
-     }
+//      if(idG4 != id)
+//      {
+//        pointsArray4.push([xDireaction,yDireaction]);
+//        idG4=id;
+//      }
     
-   }
+//    }
 });
 
 $( "#drawing >> g[x]" ).mouseup(function() {
@@ -328,20 +347,21 @@ $( "#drawing >> g[x]" ).mouseup(function() {
             xDireaction=$(this).attr('x');
             yDireaction=$(this).attr('y');
             pointsArray.push([xDireaction,yDireaction]);
-            shapeObject=new  Shape(pointsArray); 
+            // shapeObject=new  Shape(pointsArray); 
                 
             } catch (error) {
                 
             }
             
-        } else {
-            try {
-            shapes[index].draw(event);
-            shapeObject=new  Shape();
-                } catch (error) {
+        } 
+        // else {
+        //     try {
+        //     shapes[index].draw(event);
+        //     shapeObject=new  Shape();
+        //         } catch (error) {
                 
-            }
-        }
+        //     }
+        // }
         index++;  
 });
 
@@ -359,39 +379,42 @@ $( "#drawing2 >> g[x]" ).mouseup(function() {
                 
             }
             
-        } else {
-            try {
-            shapes2[index2].draw(event);
-            shapeObject2=new  Shape();
-                } catch (error) {
+        } 
+        // else {
+        //     try {
+        //     shapes2[index2].draw(event);
+        //     shapeObject2=new  Shape();
+        //         } catch (error) {
                 
-            }
-        }
+        //     }
+        // }
         index2++;  
 });
 
-$( "#drawing3 >> g[x]" ).mouseup(function() {
+$( "#drawing3 >> g[x]" ).mouseup(function(event) {
     //console.log('mouseup circle');
+    event.stopPropagation();
     if (shape3 === 'mouse paint') {
             try {
             shapes3[index3].draw('stop', event); 
             xDireaction=$(this).attr('x');
             yDireaction=$(this).attr('y');
             pointsArray3.push([xDireaction,yDireaction]);
-            shapeObject3=new  Shape(pointsArray3); 
+            // shapeObject3=new  Shape(pointsArray3); 
                 
             } catch (error) {
                 
             }
             
-        } else {
-            try {
-            shapes3[index3].draw(event);
-            shapeObject3=new  Shape();
-                } catch (error) {
+        } 
+        // else {
+        //     try {
+        //     shapes3[index3].draw(event);
+        //     // shapeObject3=new  Shape();
+        //         } catch (error) {
                 
-            }
-        }
+        //     }
+        // }
         index3++;  
 });
 
@@ -409,7 +432,8 @@ $( "#drawing4 >> g[x]" ).mouseup(function() {
                 
             }
             
-        } else {
+        } 
+        else {
             try {
             shapes4[index4].draw(event);
             shapeObject4=new  Shape();
@@ -425,7 +449,7 @@ $( "#drawing" ).mouseup(function() {
         if (shape === 'mouse paint') {
             try {
                 shapes[index].draw('stop', event); 
-                shapeObject=new  Shape(pointsArray);   
+                // shapeObject=new  Shape(pointsArray);   
             } catch (error) {   
             }
         } else {
@@ -454,18 +478,18 @@ $( "#drawing" ).mouseup(function() {
 
 $( "#drawing3" ).mouseup(function() {
     //console.log('mouseup drawing');
-        if (shape3 === 'mouse paint') {
-            try {
-                shapes3[index3].draw('stop', event); 
-                shapeObject3=new  Shape(pointsArray3);   
-            } catch (error) {   
-            }
-        } else {
-            if(!shape3=='undefined'){
-                shapes3[index3].draw(event);
-            }
+    if (shape3 === 'mouse paint') {
+        try {
+            shapes3[index3].draw('stop', event); 
+            // shapeObject=new  Shape(pointsArray);   
+        } catch (error) {   
         }
-        index3++; 
+    } else {
+        if(!shape3=='undefined'){
+            shapes[index3].draw(event);
+        }
+    }
+    index++; 
 });
 
 
@@ -484,46 +508,53 @@ $( "#drawing4" ).mouseup(function() {
         }
         index4++; 
 });
+document.getElementById("drawing3").style.display = "none";
+document.getElementById("drawing2").style.display = "none";
+document.getElementById("drawing").style.display = "none";
+document.getElementById("graph1").style.display = "none";
+document.getElementById("graph2").style.display = "none";
+document.getElementById("graph3").style.display = "none";
 
 
 function calculate(){
     let countTrue=0;
 
-    try{
-        squre=new Shape(pointsArray);
-        if(squre.isSquare()){
-            countTrue++;
-            alert("good ");
-        }else{
-            alert("its is ot  squre ");
-        }
-    }catch(error){
-        alert("must be drow squre ");
-    }
+    // try{
+    //     squre=new Shape(pointsArray);
+    //     if(squre.isSquare()){
+    //         countTrue++;
+    //         alert("good ");
+    //     }else{
+    //         alert("its is ot  squre ");
+    //     }
+    // }catch(error){
+    //     alert("must be drow squre ");
+    // }
    
-    try{
-        triangle= new Shape(pointsArray2);
-        if(triangle.isTriangle()){
-            countTrue++;
-            alert("good it is Triangle");
-        }else{
-            alert("its is ot  Triangle ");
-        }
-    }catch(error){
-        alert("must be drow Triangle ");
-    }
+    // try{
+    //     triangle= new Shape(pointsArray2);
+    //     if(triangle.isTriangle()){
+    //         countTrue++;
+    //         alert("good it is Triangle");
+    //     }else{
+    //         alert("its is ot  Triangle ");
+    //     }
+    // }catch(error){
+    //     alert("must be drow Triangle ");
+    // }
 
-    try{
-        rectangle= new Shape(pointsArray3);
-        if(rectangle.isRectangle()){
-            countTrue++;
-            alert("good it is rectangle");
-        }else{
-            alert("its is not  rectangle ");
-        }
-    }catch(error){
-        alert("must be drow rectangle ");
-    }
+    // try{
+    //     rectangle= new Shape(pointsArray3);
+
+    //     if(rectangle.isRectangle()){
+    //         countTrue++;
+    //         alert("good it is rectangle");
+    //     }else{
+    //         alert("its is not  rectangle ");
+    //     }
+    // }catch(error){
+    //     alert("must be drow rectangle ");
+    // }
 
     try{
         hexa= new Shape(pointsArray3);
@@ -537,10 +568,10 @@ function calculate(){
         alert("must be drow hexa ");
     }
     
-    if(countTrue >=4){
-        alert("all off ture ");
-    }else{
+    // if(countTrue >=4){
+    //     alert("all off ture ");
+    // }else{
 
-    }
+    // }
 }
 

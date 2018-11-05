@@ -3,16 +3,35 @@ class Shape {
     constructor(pointsArray) {
         this.points=pointsArray;
         this.nodesPoint=pointsArray.length;
-
-        //this.isRectangle();
-        //this.isTriangle();
-        // this.moin();
-        //this.isHexa();
     }
 
 
     isRectangle(){
- 
+        var condations=0;// must be .. condtion
+        if(this.points[this.points.length-1][0]==this.points[0][0] || this.points[this.points.length-1][1]==this.points[0][1] ){
+            condations++;  
+        }
+        for (let index = 0; index < this.points.length; index++) {
+
+            if(this.points[index][1]==this.points[index+1][1]){
+                condations+=1;
+            }else{
+                if(this.points[0][1]==this.points[this.points.length-1][1]){
+                    condations+=1; 
+                }
+            }
+            if(condations>=3){
+                if(this.itsNotSquare()){
+                    return true;  
+                }
+            }
+        }
+        return false;
+        
+        
+    
+       
+
         if(this.finalNodeEqFirstNode() && this.mostDuplicatesRow()){
             return true; 
             // if(this.isGolineColumn()){
@@ -43,20 +62,106 @@ class Shape {
     }
 
     isHexa(){
+        let condations=0;
+        if(this.nodesPoint==8){
+            condations++;
+        }
+        console.log(this.points);
         if( !this.isRectangle()&& this.isEvenNode(this.nodesPoint)&& this.cornerCouuntHexa()&& this.finalNodeEqFirstNode() ){
             console.log("it is Hexa");
          }  
     }
 
     isTriangle(){
+        console.log(this.points);
+        let condition=0;
+        if(this.nodesPoint==3){
+            condition++;   
+        }else{
+            return false;
+        }
+        for (let index = 0; index < this.points.length; index++) {
+            if(this.points[index][1]==this.points[index+1][1]){
+                condition++; 
+            }
+            if(this.points[index][1]==this.points[index+1][0]){
+                condition++; 
+            }
+           if(condition>=3){
+               return true;
+           }
+        }
+
+        return false;
+
+
         if(!this.isSquare()&& !this.isRectangle()&& this.isEvenNode(this.nodesPoint)&& this.cornerCouuntTriangle()&& this.finalNodeEqFirstNode() ){
            console.log("it is isTriangle");
         }
       
     }
-
-    isSquare() {
+    itsNotSquare(){
+        let condtion=0 ; 
      
+        for (let index = 0; index < this.points.length; index++) {
+            if(this.points[index][0]==this.points[index][1]){
+                condtion++;
+                
+            }
+        }
+        if(condtion==2){
+            return false;
+        }else{
+            return true;
+        }
+      
+    }
+    isSquare() {
+        let threeCondtion=0 ; // must be three condation 
+        var comprition1;
+        var comprition2;
+        
+        for (let index = 0; index < this.points.length; index++) {
+            if(this.points[index][0]==this.points[index][1]){
+                threeCondtion++;
+            }
+        }
+     
+        if(this.points[0][0]!= this.points[0][1]){
+
+            if(this.points[0][1] > this.points[0][0]){
+                
+                comprition1=this.points[0][1]-this.points[0][0];
+                comprition2=this.points[this.points.length-2][0]-this.points[this.points.length-2][1];
+
+            }else{
+
+                comprition1=this.points[0][0]-this.points[0][1];
+                comprition2=this.points[this.points.length-2][1]-this.points[this.points.length-2][0];
+            }
+        }else{
+          
+            if(this.points[1][1] > this.points[1][0]){
+                
+
+                comprition1=this.points[1][1]-this.points[1][0];
+                comprition2=this.points[this.points.length-1][0]-this.points[this.points.length-1][1];
+
+            }else{
+                comprition1=this.points[1][0]-this.points[1][1];
+                comprition2=this.points[this.points.length-1][1]-this.points[this.points.length-1][0];
+            }
+        }
+
+        if(comprition1==comprition2){
+            threeCondtion++;
+        }
+        if(threeCondtion==3){
+           return true;
+        }else{
+            return false;
+        }
+
         if(this.finalNodeEqFirstNode() && this.isEvenNode(this.nodesPoint)){
             //console.log("finalNodeEqFirstNode && isEvenNode");
             if(this.isGolineColumn()){
