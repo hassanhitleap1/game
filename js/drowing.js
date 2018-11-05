@@ -342,34 +342,8 @@ $( "#drawing3 >> g[x]" ).mouseup(function(event) {
         index3++;  
 });
 //$('#drawing4 >> g[x]').on('mouseup', function(event) 
-$( "#drawing4 >> g[x]" ).mouseup(function(event) {
-    event.preventDefault();
-    console.log('mouseup mouseup');
-    event.preventDefault();
-    
-    if (shape4 === 'mouse paint') {
-            shapes4[index4].draw('stop', event); 
-            try {
-           
-            xDireaction=$(this).attr('x');
-            yDireaction=$(this).attr('y');
-            pointsArray4.push([xDireaction,yDireaction]);
-            shapeObject4=new  Shape(pointsArray4); 
-                
-            } catch (error) {
-                
-            }
-            
-        } else {
-            try {
-            shapes4[index4].draw(event);
-            shapeObject4=new  Shape();
-                } catch (error) {
-                
-            }
-        }
-        index4++;  
-});
+
+
 
 
 $( "#drawing" ).mouseup(function() {
@@ -435,6 +409,16 @@ $( "#drawing4" ).mouseup(function() {
             }
         }
         index4++; 
+});
+
+
+$(document).ready(function () {
+    $('#drawing4 >> g[x]').on('mouseup', function(event) {
+   
+        console.log('mouseup mouseup');
+        
+
+    }); 
 });
 document.getElementById("drawing3").style.display = "none";
 document.getElementById("drawing2").style.display = "none";
