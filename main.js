@@ -12,25 +12,25 @@ class Shape {
 
 
     isRectangle(){
-        if(this.finalNodeEqFirstNode() && this.isEvenNode(this.nodesPoint)){
-            if(this.isGolineColumn()){
-                   // console.log('isGolineColumn');
-                 var stratFromNode=this.sumNodeINColumn();
-                 if(stratFromNode !=this.sumNodeINRowColumn(stratFromNode)){
-                     alert("its isRectangle");
-                     return true; 
-                 }
-             }
-             if(this.isGoLineRow()){
-                  //  console.log('isGoLineRow');
-                 var stratFromNode=this.sumNodeINRow();
-                 if(stratFromNode!=this.sumNodeINColumnRow(stratFromNode)){
-                    alert("its isRectangle");
-                     return true; 
-                 }
-             }
-            
-             return false;
+ 
+        if(this.finalNodeEqFirstNode() && this.mostDuplicatesRow()){
+            return true; 
+            // if(this.isGolineColumn()){
+            //         console.log('isGolineColumn');
+            //      var stratFromNode=this.sumNodeINColumn();
+            //      if(stratFromNode !=this.sumNodeINRowColumn(stratFromNode)){
+            //          alert("its isRectangle");
+            //          return true; 
+            //      }
+            //  }
+            //  if(this.isGoLineRow()){
+            //        console.log('isGoLineRow');
+            //      var stratFromNode=this.sumNodeINRow();
+            //      if(stratFromNode!=this.sumNodeINColumnRow(stratFromNode)){
+            //         alert("its isRectangle");
+                     
+            //      }
+            //  }
         }
         
         return false;
@@ -411,6 +411,30 @@ class Shape {
          else{
             return(false);    
          }
+    }
+
+
+    mostDuplicatesRow(){
+        var nodeRow=0;
+        var nodeColumn=0;
+        var row;
+        var cloumn;
+        for (let index = 0; index < this.points.length; index++) {
+            cloumn=this.points[index][0];
+            row=this.points[index][1];
+            if(index < this.points.length-1){
+                if(this.points[index+1][0]==(cloumn++) ){
+                    nodeRow++;
+                }
+                if(this.points[index+1][1]==(row++)){
+                    nodeColumn++;
+                }
+            }
+        }
+        if(nodeColumn==nodeRow){
+            return false;
+        }
+        return true;
     }
 }
 

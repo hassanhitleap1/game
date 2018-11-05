@@ -485,32 +485,32 @@ $( "#drawing4" ).mouseup(function() {
 });
 
 
-
 function calculate(){
     let countTrue=0;
-    // try{
-    //     squre=new Shape(pointsArray);
-    //     if(squre.isSquare()){
-    //         countTrue++;
-    //         alert("good ");
-    //     }else{
-    //         console.log('its is ot  squre ');
-    //     }
-    // }catch(error){
-    //     alert("must be drow squre ");
-    // }
+
+    try{
+        squre=new Shape(pointsArray);
+        if(squre.isSquare()){
+            countTrue++;
+            alert("good ");
+        }else{
+            alert("its is ot  squre ");
+        }
+    }catch(error){
+        alert("must be drow squre ");
+    }
    
-    // try{
-    //     triangle= new Shape(pointsArray2);
-    //     if(triangle.isTriangle()){
-    //         countTrue++;
-    //         alert("good it is Triangle");
-    //     }else{
-    //         console.log('its is ot  Triangle ');
-    //     }
-    // }catch(error){
-    //     alert("must be drow Triangle ");
-    // }
+    try{
+        triangle= new Shape(pointsArray2);
+        if(triangle.isTriangle()){
+            countTrue++;
+            alert("good it is Triangle");
+        }else{
+            alert("its is ot  Triangle ");
+        }
+    }catch(error){
+        alert("must be drow Triangle ");
+    }
 
     try{
         rectangle= new Shape(pointsArray3);
@@ -524,22 +524,22 @@ function calculate(){
         alert("must be drow rectangle ");
     }
 
-    // try{
-    //     hexa= new Shape(pointsArray3);
-    //     if(hexa.isHexa()){
-    //         countTrue++;
-    //         alert("good it is hexa");
-    //     }else{
-    //         console.log('its is ot  hexa ');
-    //     }
-    // }catch(error){
-    //     alert("must be drow hexa ");
-    // }
+    try{
+        hexa= new Shape(pointsArray3);
+        if(hexa.isHexa()){
+            countTrue++;
+            alert("good it is hexa");
+        }else{
+            alert("its is ot  hexa ");
+        }
+    }catch(error){
+        alert("must be drow hexa ");
+    }
     
-    // if(countTrue >=4){
-    //     alert("all off ture ");
-    // }else{
+    if(countTrue >=4){
+        alert("all off ture ");
+    }else{
 
-    // }
+    }
 }
 
