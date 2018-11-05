@@ -209,6 +209,7 @@ const shape = getDrawObject();
     yDireaction=$(this).attr('y');
      pointsArray=[[xDireaction,yDireaction]];
      idG=$( "g[x]" ).attr('id');
+     
 });
 
 $("#drawing2 >> g[x]" ).mousedown(function() {
