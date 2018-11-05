@@ -249,10 +249,10 @@ const shape3 = getDrawObject3();
     //  idG3=$( this ).attr('id');
 });
 $("#drawing4 >> g[x]" ).mousedown(function() {
-// console.log('mousedown circle');
-const shape4 = getDrawObject4();
-  shapes4[index2] = shape4;
-  shape4.draw(event);
+ 
+    const shape4 = getDrawObject4();
+    shapes4[index2] = shape4;
+    shape4.draw(event);
      xDireaction=$(this).attr('x');
     yDireaction=$(this).attr('y');
      if(!pointsArray4.length){
@@ -260,84 +260,8 @@ const shape4 = getDrawObject4();
       }else{
         pointsArray4.push([xDireaction,yDireaction]);
       }
-    //  idG4=$( this ).attr('id');
 });
 
-$( "#drawing >> g[x]" ).mousemove(function(event) {
-   
-    // var id=$(this).attr('id');
-    // if (shape === 'mouse paint' && shapes[index]) {
-    //    // console.log('mousemove circle');
-    //     shapes[index].draw('point', event);
-        
-    //     xDireaction=$(this ).attr('x');
-    //     yDireaction=$( this ).attr('y');
-
-    //   if(idG != id)
-    //   {
-    //     pointsArray.push([xDireaction,yDireaction]);
-    //     idG=id;
-    //   }
-     
-    // }
-});
-
-$( "#drawing2 >> g[x]" ).mousemove(function(event) {
-   
-//    var id=$(this).attr('id');
-//    if (shape2 === 'mouse paint' && shapes2[index2]) {
-//       // console.log('mousemove circle');
-//        shapes2[index2].draw('point', event);
-       
-//        xDireaction=$(this ).attr('x');
-//        yDireaction=$( this ).attr('y');
-
-//      if(idG2 != id)
-//      {
-//        pointsArray2.push([xDireaction,yDireaction]);
-//        idG2=id;
-//      }
-    
-//    }
-});
-
-$( "#drawing3 >> g[x]" ).mousemove(function(event) {
-   
-//    var id=$(this).attr('id');
-//    if (shape3 === 'mouse paint' && shapes3[index3]) {
-//       // console.log('mousemove circle');
-//        shapes3[index3].draw('point', event);
-       
-//        xDireaction=$(this ).attr('x');
-//        yDireaction=$( this ).attr('y');
-
-//      if(idG3 != id)
-//      {
-//        pointsArray3.push([xDireaction,yDireaction]);
-//        idG3=id;
-//      }
-    
-//    }
-});
-
-$( "#drawing4 >> g[x]" ).mousemove(function(event) {
-   
-   var id=$(this).attr('id');
-   if (shape4 === 'mouse paint' && shapes4[index4]) {
-      // console.log('mousemove circle');
-       shapes4[index4].draw('point', event);
-       
-       xDireaction=$(this ).attr('x');
-       yDireaction=$( this ).attr('y');
-
-     if(idG4 != id)
-     {
-       pointsArray4.push([xDireaction,yDireaction]);
-       idG4=id;
-     }
-    
-   }
-});
 
 $( "#drawing >> g[x]" ).mouseup(function() {
     //console.log('mouseup circle');
@@ -417,12 +341,16 @@ $( "#drawing3 >> g[x]" ).mouseup(function(event) {
         // }
         index3++;  
 });
-
-$( "#drawing4 >> g[x]" ).mouseup(function() {
-    //console.log('mouseup circle');
+//$('#drawing4 >> g[x]').on('mouseup', function(event) 
+$( "#drawing4 >> g[x]" ).mouseup(function(event) {
+    event.preventDefault();
+    console.log('mouseup mouseup');
+    event.preventDefault();
+    
     if (shape4 === 'mouse paint') {
-            try {
             shapes4[index4].draw('stop', event); 
+            try {
+           
             xDireaction=$(this).attr('x');
             yDireaction=$(this).attr('y');
             pointsArray4.push([xDireaction,yDireaction]);
@@ -442,6 +370,7 @@ $( "#drawing4 >> g[x]" ).mouseup(function() {
         }
         index4++;  
 });
+
 
 $( "#drawing" ).mouseup(function() {
     //console.log('mouseup drawing');
